@@ -14,8 +14,10 @@ public class Bauer extends Figur
 		if(spielZugMoeglich(spielfeld,position))
 		{
 			statement=true;
+			this.pos.setPosX(position.get(x));
+			this.pos.setPosY(position.get(y));
 		}
-		
+				
 		return statement;
 	}
 	
