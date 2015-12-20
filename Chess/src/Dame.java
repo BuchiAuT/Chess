@@ -21,7 +21,7 @@ public class Dame extends Figur
 		{
 			for(int i = 0; i < sp.figuren.length; i++)
 			{
-				if(((sp.figuren[i].pos.x!=nach.x) && (sp.figuren[i].pos.y!=nach.y)))
+				if(((sp.holeFigur().pos.x!=nach.x) && (sp.holeFigur().pos.y!=nach.y)))
 				{
 					if(((nach.x <= spielfeldendeX) || (nach.x >= 0)) || ((nach.y >= spielfeldendeY) || (nach.y >= 0)))
 					{

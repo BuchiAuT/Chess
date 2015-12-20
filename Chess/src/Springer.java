@@ -4,7 +4,7 @@ public class Springer extends Figur
 {
 	public Springer()
 	{
-		super();
+		super(Position.pos);
 	}
 	
 	public boolean spielZug(SpielFeld spielfeld, Position position)

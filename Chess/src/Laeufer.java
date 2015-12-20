@@ -32,14 +32,11 @@ public class Laeufer extends Figur
 		
 		if(((nach.x) == (this.pos.x-1)) && ((nach.y) == (this.pos.y+1))) // nach links und nach oben
 		{
-			for(int i = 0; i < sp.figuren.length; i++)
+			if(((sp.holeFigur().pos.x!=nach.x) && (sp.holeFigur().pos.y!=nach.y)))
 			{
-				if(((sp.figuren[i].pos.x!=nach.x) && (sp.figuren[i].pos.y!=nach.y)))
+				if(((nach.x <= spielfeldendeX) || (nach.x >= 0)) || ((nach.y >= spielfeldendeY) || (nach.y >= 0)))
 				{
-					if(((nach.x <= spielfeldendeX) || (nach.x >= 0)) || ((nach.y >= spielfeldendeY) || (nach.y >= 0)))
-					{
-						statement = true;
-					}
+					statement = true;
 				}
 			}
 		}
@@ -48,14 +45,11 @@ public class Laeufer extends Figur
 		
 		if(((nach.x) == (this.pos.x-1)) && ((nach.y) == (this.pos.y-1))) // nach links und nach unten
 		{
-			for(int i = 0; i < sp.figuren.length; i++)
+			if(((sp.holeFigur().pos.x!=nach.x) && (sp.holeFigur().pos.y!=nach.y)))
 			{
-				if(((sp.figuren[i].pos.x!=nach.x) && (sp.figuren[i].pos.y!=nach.y)))
+				if(((nach.x <= spielfeldendeX) || (nach.x >= 0)) || ((nach.y >= spielfeldendeY) || (nach.y >= 0)))
 				{
-					if(((nach.x <= spielfeldendeX) || (nach.x >= 0)) || ((nach.y >= spielfeldendeY) || (nach.y >= 0)))
-					{
-						statement = true;
-					}
+					statement = true;
 				}
 			}
 		}
@@ -64,14 +58,11 @@ public class Laeufer extends Figur
 		
 		if(((nach.x) == (this.pos.x+1)) && ((nach.y) == (this.pos.y-1))) // nach rechts und nach unten
 		{
-			for(int i = 0; i < sp.figuren.length; i++)
+			if(((sp.holeFigur().pos.x!=nach.x) && (sp.holeFigur().pos.y!=nach.y)))
 			{
-				if(((sp.figuren[i].pos.x!=nach.x) && (sp.figuren[i].pos.y!=nach.y)))
+				if(((nach.x <= spielfeldendeX) || (nach.x >= 0)) || ((nach.y >= spielfeldendeY) || (nach.y >= 0)))
 				{
-					if(((nach.x <= spielfeldendeX) || (nach.x >= 0)) || ((nach.y >= spielfeldendeY) || (nach.y >= 0)))
-					{
-						statement = true;
-					}
+					statement = true;
 				}
 			}
 		}
