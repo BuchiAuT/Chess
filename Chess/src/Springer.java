@@ -2,9 +2,9 @@ package src;
 
 public class Springer extends Figur
 {
-	public Springer()
+	public Springer(Position pos)
 	{
-		super(Position.pos);
+		super(pos);
 	}
 	
 	public boolean spielZug(SpielFeld spielfeld, Position position)

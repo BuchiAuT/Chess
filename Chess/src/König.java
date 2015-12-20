@@ -5,9 +5,9 @@ public class König extends Figur
 	private boolean kurzeRochadeMöglich;
 	private boolean langeRochadeMöglich;
 	
-	public König()
+	public König(Position pos)
 	{
-		super(Position.pos);
+		super(pos);
 	}
 	
 	public boolean spielZug(SpielFeld spielfeld, Position position)
