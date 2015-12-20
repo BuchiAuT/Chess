@@ -17,8 +17,8 @@ public class König extends Figur
 		if(spielZugMoeglich(spielfeld,position))
 		{
 			statement=true;
-			this.pos.setPosX(position.get(x));
-			this.pos.setPosY(position.get(y));
+			this.pos.setPosX(position.getX());
+			this.pos.setPosY(position.getY());
 		}
 		
 		return statement;
@@ -33,12 +33,14 @@ public class König extends Figur
 		// Diagonal schlagen/fahren 	(links vor, rechts vor, links zurück, rechts zurück)	
 		
 		
-		if((((position.get(x))==(this.pos.get(x)+1)) && ((position.get(y))==(this.pos.get(y)+1))) || (((position.get(x))==(this.pos.get(x)-1)) && ((position.get(y))==(this.pos.get(y)+1))) || (((position.get(x))==(this.pos.get(x)-1)) && ((position.get(y))==(this.pos.get(y)-1))) || (((position.get(x))==(this.pos.get(x)+1)) && ((position.get(y))==(this.pos.get(y)+1))))	
+		if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()+1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()-1))) || (((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+1))))	
 		{	
-				if((((spielfeld.holeFigur().pos.get(x)==position.get(x)) && (spielfeld.holeFigur().pox.get(y)==position.get(y))) && (spielfeld.holeFigur().get(farbe)!=this.get(farbe)) || ((spielfeld.holeFigur().pos.get(x)!=position.get(x)) && (spielfeld.holeFigur().pox.get(y)!=position.get(y))))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
+				if((((spielfeld.holeFigur(pos).getX()==position.getX()) && (spielfeld.holeFigur(pos).getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) || ((spielfeld.holeFigur(pos).getX()!=position.getX()) && (spielfeld.holeFigur(pos).getY()!=position.getY())))	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
 				{
-					if((position.get(x)<=spielfeldendeX)&&(position.get(x)>=0)&&(position.get(y)<=spielfeldendeY)&&(position.get(y)>=0)) // Abfragen ob Bewegung nicht außerhalb des Feldes geht
+					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht außerhalb des Feldes geht
 					{
+						spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
+						
 						statement=true;
 					}
 				}
@@ -47,7 +49,7 @@ public class König extends Figur
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		
 		// fragen ob kurze Rochade (Turmposition: x=7, y=0 & Königposition: x=4, y=0) möglich
-		if(((this.pos.get(x)==4) && (this.pos.get(y)==0)) && (spielfeld.holeFigur().pos.get(x)==7) && ((spielfeld.holeFigur().pox.get(y)==0)) && (spielfeld.holeFigur().get(farbe)==this.get(farbe)))
+		if(((this.pos.getX()==4) && (this.pos.getY()==0)) && (spielfeld.holeFigur(pos).getX()==7) && ((spielfeld.holeFigur(pos).getY()==0)) && (spielfeld.holeFigur(pos).getFarbe()==this.getFarbe()))
 		{
 			kurzeRochadeMöglich=true;
 		}
@@ -55,7 +57,7 @@ public class König extends Figur
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 
 		// fragen ob lange Rochade(Turmposition: x=0, y=0 & Königposition: x=4, y=0) möglich
-		if(((this.pos.get(x)==4) && (this.pos.get(y)==0)) && (spielfeld.holeFigur().pos.get(x)==0) && ((spielfeld.holeFigur().pox.get(y)==0)) && (spielfeld.holeFigur().get(farbe)==this.get(farbe)))
+		if(((this.pos.getX()==4) && (this.pos.getY()==0)) && (spielfeld.holeFigur(pos).getX()==0) && ((spielfeld.holeFigur(pos).getY()==0)) && (spielfeld.holeFigur(pos).getFarbe()==this.getFarbe()))
 		{
 			langeRochadeMöglich=true;
 		}
@@ -63,7 +65,7 @@ public class König extends Figur
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		
 		// kurze Rochade ausführen
-		if(((position.get(x))==(this.pos.get(x)+2)) && ((position.get(y))==(this.pos.get(y)))) 
+		if(((position.getX())==(this.pos.getX()+2)) && ((position.getY())==(this.pos.getY()))) 
 		{
 			if(kurzeRochadeMöglich)
 			{
@@ -74,7 +76,7 @@ public class König extends Figur
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		
 		// lange Rochade ausführen
-		if(((position.get(x))==(this.pos.get(x)-2)) && ((position.get(y))==(this.pos.get(y)))) 
+		if(((position.getX())==(this.pos.getX()-2)) && ((position.getY())==(this.pos.getY()))) 
 		{
 			if(langeRochadeMöglich)
 			{

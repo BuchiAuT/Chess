@@ -16,8 +16,8 @@ public class Bauer extends Figur
 		if(spielZugMoeglich(spielfeld,position))
 		{
 			statement=true;
-			this.pos.setPosX(position.get(x));
-			this.pos.setPosY(position.get(y));
+			this.pos.setPosX(position.getX());
+			this.pos.setPosY(position.getY());
 		}
 				
 		return statement;
@@ -26,19 +26,20 @@ public class Bauer extends Figur
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)
 	{
 		boolean statement=false;
-		int zaehler=0;
 		byte spielfeldendeX=7;
 		byte spielfeldendeY=7;
 		
 		// Diagonal schlagen	(rechts vor, links vor)
 		
 		
-		if((((position.get(x))==(this.pos.get(x)+1)) && ((position.get(y))==(this.pos.get(y)+1))) || (((position.get(x))==(this.pos.get(x)-1)) && ((position.get(y))==(this.pos.get(y)+1))))	
+		if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()+1))))	
 		{	
-				if(((spielfeld.holeFigur().pos.get(x)==position.get(x)) && (spielfeld.holeFigur().pox.get(y)==position.get(y))) && (spielfeld.holeFigur().get(farbe)!=this.get(farbe)) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+				if((((spielfeld.holeFigur(pos).getX()==position.getX()) && (spielfeld.holeFigur(pos).getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{
-					if((position.get(x)<=spielfeldendeX)&&(position.get(x)>=0)&&(position.get(y)<=spielfeldendeY)&&(position.get(y)>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
+					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
 					{
+						spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
+						
 						statement=true;
 					}
 				}
@@ -48,15 +49,15 @@ public class Bauer extends Figur
 		
 		// 1 Feld nach vorne	
 		
-		if(((position.get(x))==(this.pos.get(x))) && ((position.get(y))==(this.pos.get(y)+1))) 
+		if(((position.getX())==(this.pos.getX())) && ((position.getY())==(this.pos.getY()+1))) 
 		{
-				if(((spielfeld.holeFigur().pos.get(x)!=position.get(x)) && (spielfeld.holeFigur().pos.get(y)!=position.get(y)))) // Abfragen dass keine Figur auf dem Feld steht 
+				if(((spielfeld.holeFigur(pos).getX()!=position.getX()) && (spielfeld.holeFigur(pos).getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 				{					
-					if((position.get(x)<=spielfeldendeX)&&(position.get(x)>=0)&&(position.get(y)<=spielfeldendeY)&&(position.get(y)>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
+					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
 					{
 							statement=true;
 							
-							if(position.get(y)==spielfeldendeY)	// wenn Bauer an Spielfeldende ankommt, kann eine beliebige Figur zurueck geholt werden. Um zu zeigen dass eine Figur zurueckgeholt werden kann, 
+							if(position.getY()==spielfeldendeY)	// wenn Bauer an Spielfeldende ankommt, kann eine beliebige Figur zurueck geholt werden. Um zu zeigen dass eine Figur zurueckgeholt werden kann, 
 															// gibt es die Variable "figurKannZurueckgeholtWerden".
 							{
 								eineFigurKannZurueckgeholtWerden=true;
@@ -69,13 +70,13 @@ public class Bauer extends Figur
 		
 		// 2 gerade nach Vorne bewegen, kann nur gemacht werden wenn y=1 (Y-Position des Bauern zu Beginn des Spiels)	
 		
-		if(((position.get(x))==(this.pos.get(x))) && ((position.get(y))==(this.pos.get(y)+2))) 
+		if(((position.getX())==(this.pos.getX())) && ((position.getY())==(this.pos.getY())+2))
 		{
-			if(((spielfeld.holeFigur().pos.get(x)!==position.get(x)) && (spielfeld.holeFigur().pos.get(y)!=position.get(y)))) // Abfragen ob generell keine Figur auf dem Feld steht 
+			if(((spielfeld.holeFigur(pos).getX()!=position.getX()) && (spielfeld.holeFigur(pos).getY()!=position.getY()))) // Abfragen ob generell keine Figur auf dem Feld steht 
 				{
-					if((position.get(x)<=spielfeldendeX)&&(position.get(x)>=0)&&(position.get(y)<=spielfeldendeY)&&(position.get(y)>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
+					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
 					{
-						if(this.get(y)==1)	//Bauer steht an Startposition
+						if(this.getY()==1)	//Bauer steht an Startposition
 						{
 							statement=true;
 						}
