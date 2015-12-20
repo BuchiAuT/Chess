@@ -2,7 +2,10 @@ import java.util.ArrayList;
 
 public class SpielFeld {
 	ArrayList<Figur> figuren;
-	boolean werAmZug;
+	boolean werAmZug; //weiss = true
+	boolean schachFarbe;
+	private König königSchwarz;
+	private König königWeiss;
 	public SpielFeld()
 	{
 		Position pos = new Position(1,0);
@@ -18,17 +21,49 @@ public class SpielFeld {
 		restlicheFigurenLaden(pos);
 		werAmZug = true;
 	}
+	public Figur holeFigur(Position pos)
+	{
+		for(int i = 0; i < 24;i++)
+		{
+			if(figuren.get(i).pos == pos)
+			{
+				return figuren.get(i);
+			}
+		}
+		return null;
+	}
 	public void ausgabe()
 	{
 		
 	}
 	public boolean Schach()
 	{
+		for(int i = 0; i < 24;i++)
+		{
+			if(figuren.get(i).spielZug(this, königSchwarz.pos))
+			{
+				schachFarbe =false;
+				return true;
+			}
+			if(figuren.get(i).spielZug(this, königWeiss.pos))
+			{
+				schachFarbe =true;
+				return false;
+			}		
+		}
 		return true;
 	}
 	public boolean schachMatt()
 	{
-		return true;
+		if(!figuren.contains(königSchwarz))
+		{
+			return true;
+		}
+		if(!figuren.contains(königWeiss))
+		{
+			return true;
+		}
+		return false;
 	}
 	public void spielzug(String spielzug)
 	{
@@ -41,6 +76,10 @@ public class SpielFeld {
 			{
 				figuren.get(i).spielZug(this, posQuelle, posZiel);
 			}
+		}
+		if(Schach())
+		{
+			System.out.println("Schach");
 		}
 		
 	}
@@ -80,10 +119,12 @@ public class SpielFeld {
 		figuren.add(new Dame(pos));
 		pos.setx(5);
 		pos.sety(0);
-		figuren.add(new König(pos));
+		königWeiss = new König(pos)
+		figuren.add(königWeiss);
 		pos.setx(5);
 		pos.sety(7);
-		figuren.add(new König(pos));
+		königSchwarz = new König(pos)
+		figuren.add(königSchwarz);
 		pos.setx(0);
 		pos.sety(0);
 		figuren.add(new Springer(pos);
