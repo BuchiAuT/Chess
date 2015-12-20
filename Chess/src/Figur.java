@@ -6,7 +6,7 @@ abstract class Figur
 	{
 		this.pos = pos;
 	}
-	public abstract boolean spielZug(Spielfeld sp,Position nach);
+	public abstract boolean spielZug(SpielFeld sp,Position nach);
 
-	public abstract boolean spielZug(Spielfeld sp, Position von, Position nach);
+	public abstract boolean spielZug(SpielFeld sp, Position von, Position nach);
 }
