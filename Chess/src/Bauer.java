@@ -6,7 +6,7 @@ public class Bauer extends Figur
 	
 	public Bauer()
 	{
-		super();
+		super(Position.pos);
 	}
 	
 	public boolean spielZug(SpielFeld spielfeld, Position position)

@@ -7,7 +7,7 @@ public class König extends Figur
 	
 	public König()
 	{
-		super();
+		super(Position.pos);
 	}
 	
 	public boolean spielZug(SpielFeld spielfeld, Position position)
