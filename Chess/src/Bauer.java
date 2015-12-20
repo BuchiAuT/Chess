@@ -3,7 +3,6 @@ package src;
 public class Bauer extends Figur
 {	
 	private boolean eineFigurKannZurueckgeholtWerden;
-	
 	public Bauer(Position pos)
 	{
 		super(pos);
@@ -23,7 +22,7 @@ public class Bauer extends Figur
 		return statement;
 	}
 	
-	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)
+	public boolean spielZugMoeglich(SpielFeld spielfeld, Position position)
 	{
 		boolean statement=false;
 		int zaehler=0;
