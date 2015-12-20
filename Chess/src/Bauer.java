@@ -4,9 +4,9 @@ public class Bauer extends Figur
 {	
 	private boolean eineFigurKannZurueckgeholtWerden;
 	
-	public Bauer()
+	public Bauer(Position pos)
 	{
-		super(Position.pos);
+		super(pos);
 	}
 	
 	public boolean spielZug(SpielFeld spielfeld, Position position)
