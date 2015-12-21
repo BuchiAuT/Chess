@@ -1,13 +1,13 @@
 package org.ultimate.chess.model;
-import org.ultimate.chess.logic.Position;
-import org.ultimate.chess.logic.SpielFeld;
 
 abstract class Figur 
 {
 	Position pos;
 	boolean farbeWeiss;
-	public Figur(Position pos)
+	String name;
+	public Figur(Position pos,String name)
 	{	
+		this.name = name;
 		if(pos.getY()== 0 || pos.getX()== 1)
 		{
 			farbeWeiss = true;
@@ -23,11 +23,11 @@ public String toString()
 {
 	if(farbeWeiss)
 	{
-	return ",Weiss";
+	return name+",Weiss";
 	}
 	else
 	{
-	return ",Schwarz";
+	return name+",Schwarz";
 	}
 }
 	public abstract boolean spielZug(SpielFeld sp,Position nach);

@@ -1,8 +1,5 @@
 package org.ultimate.chess.model;
 
-import org.ultimate.chess.logic.Position;
-import org.ultimate.chess.logic.SpielFeld;
-
 public class König extends Figur
 {
 	private boolean kurzeRochadeMöglich;
