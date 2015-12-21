@@ -35,6 +35,31 @@ public class SpielFeld {
 	}
 	public void ausgabe()
 	{
+		Position posa = new Position(0,0);
+		boolean gefunden = false;
+		for(int i = 0;i<8;i++)
+		{
+			posa.setY(i);
+			for(int j = 0; i<8;i++)
+			{
+				gefunden = false;
+				posa.setX(j);
+				for(int u = 0; u < 24;u++)
+				{
+					if(figuren.get(u).pos.getX()== posa.getX()&& figuren.get(u).pos.getY()== posa.getY())
+					{
+						gefunden = true;
+						System.out.print("|"+figuren.get(u).toString()+"|");
+					}
+				}
+				if(!gefunden)
+				{
+					System.out.println("|x|");
+					gefunden = true;
+				}
+			}
+			System.out.println();
+		}
 		
 	}
 	public boolean Schach()
