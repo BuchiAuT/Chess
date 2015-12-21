@@ -29,11 +29,11 @@ public String toString()
 {
 	if(farbeWeiss)
 	{
-	return name+",Weiss";
+	return name.charAt(1)+",W";
 	}
 	else
 	{
-	return name+",Schwarz";
+	return name.charAt(1)+",S";
 	}
 }
 	public abstract boolean spielZug(SpielFeld sp,Position nach);
