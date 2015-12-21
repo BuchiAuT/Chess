@@ -91,12 +91,4 @@ public class Bauer extends Figur
 	{
 		return eineFigurKannZurueckgeholtWerden;
 	}
-<<<<<<< HEAD
-=======
-	
-	public String toString()
-	{
-		return ""+name+""+;
-	}
->>>>>>> branch 'master' of https://github.com/BuchiAuT/Chess/
 }
