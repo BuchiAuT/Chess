@@ -5,7 +5,7 @@ abstract class Figur
 	boolean farbeWeiss;
 	public Figur(Position pos)
 	{	
-		if(pos.gety()== 0 || pos.gety()== 1)
+		if(pos.getY()== 0 || pos.getX()== 1)
 		{
 			farbeWeiss = true;
 		}
@@ -15,6 +15,18 @@ abstract class Figur
 		}
 		this.pos = pos;
 	}
+@Override
+public String toString() 
+{
+	if(farbeWeiss)
+	{
+	return ",Weiss";
+	}
+	else
+	{
+	return ",Schwarz";
+	}
+}
 	public abstract boolean spielZug(SpielFeld sp,Position nach);
 
 	public abstract boolean spielZug(SpielFeld sp, Position von, Position nach);
