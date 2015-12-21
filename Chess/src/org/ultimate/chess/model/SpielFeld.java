@@ -1,22 +1,39 @@
+package org.ultimate.chess.model;
 import java.util.ArrayList;
+
+import org.ultimate.chess.model.*;
 
 public class SpielFeld {
 	ArrayList<Figur> figuren;
-	boolean werAmZug;
+	boolean werAmZug; //weiss = true
+	boolean schachFarbe;
+	private König königSchwarz;
+	private König königWeiss;
 	public SpielFeld()
 	{
 		Position pos = new Position(1,0);
 		figuren = new ArrayList<Figur>();
 		for(int i = 0; i < 9;i++)
 		{
-			pos.setx(i);
+			pos.setX(i);
 			figuren.add(new Bauer(pos));
-			pos.sety(6);
+			pos.setY(6);
 			figuren.add(new Bauer(pos));
-			pos.sety(1);
+			pos.setX(1);
 		}
 		restlicheFigurenLaden(pos);
 		werAmZug = true;
+	}
+	public Figur holeFigur(Position pos)
+	{
+		for(int i = 0; i < 24;i++)
+		{
+			if(figuren.get(i).pos == pos)
+			{
+				return figuren.get(i);
+			}
+		}
+		return null;
 	}
 	public void ausgabe()
 	{
@@ -24,11 +41,32 @@ public class SpielFeld {
 	}
 	public boolean Schach()
 	{
+		for(int i = 0; i < 24;i++)
+		{
+			if(figuren.get(i).spielZug(this, königSchwarz.pos))
+			{
+				schachFarbe =false;
+				return true;
+			}
+			if(figuren.get(i).spielZug(this, königWeiss.pos))
+			{
+				schachFarbe =true;
+				return false;
+			}		
+		}
 		return true;
 	}
 	public boolean schachMatt()
 	{
-		return true;
+		if(!figuren.contains(königSchwarz))
+		{
+			return true;
+		}
+		if(!figuren.contains(königWeiss))
+		{
+			return true;
+		}
+		return false;
 	}
 	public void spielzug(String spielzug)
 	{
@@ -41,6 +79,10 @@ public class SpielFeld {
 			{
 				figuren.get(i).spielZug(this, posQuelle, posZiel);
 			}
+		}
+		if(Schach())
+		{
+			System.out.println("Schach");
 		}
 		
 	}
@@ -80,9 +122,23 @@ public class SpielFeld {
 		figuren.add(new Dame(pos));
 		pos.setX(5);
 		pos.setY(0);
+		königWeiss = new König(pos);
+		figuren.add(königWeiss);
+		pos.setX(5);
+		pos.setY(0);
 		figuren.add(new König(pos));
 		pos.setX(5);
-		pos.sety(7);
+		pos.setY(7);
+		königSchwarz = new König(pos);
+		figuren.add(königSchwarz);
+		pos.setX(0);
+		pos.setY(0);
+		figuren.add(new Springer(pos));
+		pos.setX(6);
+		pos.setY(0);
+		figuren.add(new Springer(pos));
+		pos.setX(6);
+		pos.setY(7);
 		figuren.add(new König(pos));
 		pos.setX(0);
 		pos.setY(0);

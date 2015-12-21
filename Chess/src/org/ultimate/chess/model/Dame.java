@@ -1,4 +1,5 @@
 package org.ultimate.chess.model;
+
 /**
  * 
  * @author Michael Krapf

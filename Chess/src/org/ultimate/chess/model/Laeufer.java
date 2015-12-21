@@ -1,4 +1,8 @@
 package org.ultimate.chess.model;
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/BuchiAuT/Chess
 /**
  * 
  * @author Michael Krapf
