@@ -91,4 +91,9 @@ public class Bauer extends Figur
 	{
 		return eineFigurKannZurueckgeholtWerden;
 	}
+	
+	public String toString()
+	{
+		return ""+name+""+;
+	}
 }
