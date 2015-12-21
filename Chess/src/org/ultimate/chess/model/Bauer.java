@@ -1,9 +1,8 @@
-package src;
+package org.ultimate.chess.model;
 
 public class Bauer extends Figur
 {	
 	private boolean eineFigurKannZurueckgeholtWerden;
-	private String name="B";
 	
 	public Bauer(Position pos)
 	{
@@ -37,7 +36,7 @@ public class Bauer extends Figur
 		{	
 				if((((spielfeld.holeFigur(pos).getX()==position.getX()) && (spielfeld.holeFigur(pos).getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{
-					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht außerhalb des Feldes geht
+					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht
 					{
 						spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
 						
@@ -54,7 +53,7 @@ public class Bauer extends Figur
 		{
 				if(((spielfeld.holeFigur(pos).getX()!=position.getX()) && (spielfeld.holeFigur(pos).getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 				{					
-					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht außerhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
+					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
 					{
 							statement=true;
 							
@@ -75,7 +74,7 @@ public class Bauer extends Figur
 		{
 			if(((spielfeld.holeFigur(pos).getX()!=position.getX()) && (spielfeld.holeFigur(pos).getY()!=position.getY()))) // Abfragen ob generell keine Figur auf dem Feld steht 
 				{
-					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht außerhalb des Feldes geht
+					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht
 					{
 						if(this.getY()==1)	//Bauer steht an Startposition
 						{
