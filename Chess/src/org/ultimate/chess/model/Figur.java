@@ -24,6 +24,10 @@ abstract class Figur
 		}
 		this.pos = pos;
 	}
+	public boolean getFarbe()
+	{
+		return farbeWeiss;
+	}
 @Override
 public String toString() 
 {
