@@ -7,8 +7,10 @@ public class SpielFeld {
 	boolean schachFarbe;
 	private König königSchwarz;
 	private König königWeiss;
+	boolean istSchach;
 	public SpielFeld()
 	{
+		istSchach = false;
 		Position pos = new Position(1,0);
 		figuren = new ArrayList<Figur>();
 		for(int i = 0; i < 9;i++)
@@ -64,16 +66,19 @@ public class SpielFeld {
 	}
 	public boolean Schach()
 	{
+		istSchach = false;
 		for(int i = 0; i < 24;i++)
 		{
-			if(figuren.get(i).spielZug(this, königSchwarz.pos))
+			if(figuren.get(i).spielzugMoeglich(this, königSchwarz.pos))
 			{
 				schachFarbe =false;
+				istSchach = true;
 				return true;
 			}
-			if(figuren.get(i).spielZug(this, königWeiss.pos))
+			if(figuren.get(i).spielzugMoeglich(this, königWeiss.pos))
 			{
 				schachFarbe =true;
+				istSchach = true;
 				return false;
 			}		
 		}
@@ -81,6 +86,8 @@ public class SpielFeld {
 	}
 	public boolean schachMatt()
 	{
+		if(istSchach)
+		{
 		if(!figuren.contains(königSchwarz))
 		{
 			return true;
@@ -88,6 +95,7 @@ public class SpielFeld {
 		if(!figuren.contains(königWeiss))
 		{
 			return true;
+		}
 		}
 		return false;
 	}
@@ -106,6 +114,10 @@ public class SpielFeld {
 		if(Schach())
 		{
 			System.out.println("Schach");
+			if(schachMatt())
+			{
+				System.out.println("SchachMatt");
+			}
 		}
 		
 	}
