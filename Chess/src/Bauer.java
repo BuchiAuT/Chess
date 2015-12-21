@@ -3,6 +3,7 @@ package src;
 public class Bauer extends Figur
 {	
 	private boolean eineFigurKannZurueckgeholtWerden;
+	private String name="B";
 	
 	public Bauer(Position pos)
 	{
@@ -90,5 +91,10 @@ public class Bauer extends Figur
 	public boolean getObFigurGeholtWerdenKann()
 	{
 		return eineFigurKannZurueckgeholtWerden;
+	}
+	
+	public String toString()
+	{
+		return ""+name+""+;
 	}
 }
