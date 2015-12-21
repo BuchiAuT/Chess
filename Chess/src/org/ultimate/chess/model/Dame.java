@@ -27,10 +27,11 @@ public class Dame extends Figur
 		byte spielfeldendeX=7;
 		byte spielfeldendeY=7;
 		
-		// Diagonal schlagen	(x+1, y+1)
+		// figuren schlagen	(alle Kombinationen)
 		
 		
-		if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()+1))))	
+		if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()+1)))	|| (((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()-1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()-1)))
+				|| (((position.getX())==(this.pos.getX())) && ((position.getY())==(this.pos.getY()+1)))	|| (((position.getX())==(this.pos.getX())) && ((position.getY())==(this.pos.getY()-1)))	|| (((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY())))	|| (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()))))	
 		{	
 				if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{
@@ -45,9 +46,9 @@ public class Dame extends Figur
 		
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		
-		// 1 Feld nach vorne	
+		// nach rechts und nach oben
 		
-		if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()-1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()+1))))	
+		if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+1))))
 		{	
 				if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{
@@ -62,20 +63,110 @@ public class Dame extends Figur
 		
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
-		// 2 gerade nach Vorne bewegen, kann nur gemacht werden wenn y=1 (Y-Position des Bauern zu Beginn des Spiels)	
+		// nach rechts und nach unten
 		
-		if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()+1))))	
-		{	
-				if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
-				{
-					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
-					{
-						spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
-						
-						statement=true;
-					}
+				if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()-1))))
+				{	
+						if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+						{
+							if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
+							{
+								spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
+								
+								statement=true;
+							}
+						}
 				}
-		}
+				
+				// nach links und nach oben
+				
+				if((((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()+1))))
+				{	
+						if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+						{
+							if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
+							{
+								spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
+								
+								statement=true;
+							}
+						}
+				}
+				
+				// nach links und nach unten
+				
+				if((((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()-1))))
+				{	
+						if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+						{
+							if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
+							{
+								spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
+								
+								statement=true;
+							}
+						}
+				}
+				
+				// nach rechts
+				
+				if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()))))
+				{	
+						if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+						{
+							if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
+							{
+								spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
+								
+								statement=true;
+							}
+						}
+				}
+				
+				// nach links
+				
+				if((((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()))))
+				{	
+						if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+						{
+							if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
+							{
+								spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
+								
+								statement=true;
+							}
+						}
+				}
+				
+				// nach oben
+				
+				if((((position.getX())==(this.pos.getX())) && ((position.getY())==(this.pos.getY()+1))))
+				{	
+						if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+						{
+							if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
+							{
+								spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
+								
+								statement=true;
+							}
+						}
+				}
+				
+				// nach unten
+				
+				if((((position.getX())==(this.pos.getX())) && ((position.getY())==(this.pos.getY()-1))))
+				{	
+						if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+						{
+							if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
+							{
+								spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
+								
+								statement=true;
+							}
+						}
+				}
 		
 		return statement;
 	}
