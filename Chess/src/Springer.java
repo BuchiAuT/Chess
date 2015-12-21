@@ -1,5 +1,8 @@
 package src;
 
+import org.ultimate.chess.logic.Position;
+import org.ultimate.chess.logic.SpielFeld;
+
 public class Springer extends Figur
 {
 	public Springer(Position pos)

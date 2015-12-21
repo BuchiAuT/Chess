@@ -1,4 +1,11 @@
+package org.ultimate.chess.logic;
 import java.util.ArrayList;
+import org.ultimate.chess.model.*;
+
+import Dame;
+import Figur;
+import Laeufer;
+import Turm;
 
 public class SpielFeld {
 	ArrayList<Figur> figuren;

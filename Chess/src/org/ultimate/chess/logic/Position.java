@@ -1,3 +1,4 @@
+package org.ultimate.chess.logic;
 
 public class Position 
 {
