@@ -4,6 +4,11 @@ public class Bauer extends Figur
 {	
 	private boolean eineFigurKannZurueckgeholtWerden;
 	
+	// es muss noch folgendes implementiert werden:
+	//						Es werden in den einzelnen Klassen nur Bewegungen von unten nach oben
+	//						realisiert! Es soll abgefragt werden welche Farbe am Zug ist...
+	//						Schwarz f‰hrt zum Beispiel von oben nach unten und Weiﬂ umgekehrt.
+	
 	public Bauer(Position pos, String name)
 	{
 		super(pos,name);
@@ -29,7 +34,7 @@ public class Bauer extends Figur
 		byte spielfeldendeX=7;
 		byte spielfeldendeY=7;
 		
-		// Diagonal schlagen	(rechts vor, links vor)
+		// Diagonal schlagen Spieler weiﬂ (rechts vor, links vor)
 		
 		
 		if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()+1))))	
@@ -44,6 +49,8 @@ public class Bauer extends Figur
 					}
 				}
 		}
+		
+		// Diagonal schlagen Spieler schwarz
 		
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		
