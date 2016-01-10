@@ -26,6 +26,7 @@ public class Dame extends Figur
 		boolean statement=false;
 		byte spielfeldendeX=7;
 		byte spielfeldendeY=7;
+		// des steht da damit i's commiten kann...
 		
 		// figuren schlagen	(alle Kombinationen)
 		

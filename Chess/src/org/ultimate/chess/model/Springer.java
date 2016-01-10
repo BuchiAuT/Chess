@@ -9,6 +9,7 @@ public class Springer extends Figur
 	
 	public boolean spielZug(SpielFeld spielfeld, Position position)
 	{
+		// des steht da damit i's commiten kann...
 		boolean statement=false;
 		
 		if(spielzugMoeglich(spielfeld,position))

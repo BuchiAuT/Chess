@@ -12,6 +12,7 @@ public class Bauer extends Figur
 	public Bauer(Position pos, String name)
 	{
 		super(pos,name);
+		// des steht da damit i's commiten kann...
 	}
 	
 	public boolean spielZug(SpielFeld spielfeld, Position position)

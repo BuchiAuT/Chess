@@ -10,6 +10,7 @@ public class Turm extends Figur
 	public boolean spielZug(SpielFeld spielfeld, Position position)
 	{
 		boolean statement=false;
+		// des steht da damit i's commiten kann...
 		
 		if(spielzugMoeglich(spielfeld,position))
 		{

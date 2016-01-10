@@ -2,6 +2,7 @@ package org.ultimate.chess.model;
 
 public class König extends Figur
 {
+	// des steht da damit i's commiten kann...
 	private boolean kurzeRochadeMöglich;
 	private boolean langeRochadeMöglich;
 	
