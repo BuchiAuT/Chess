@@ -1,3 +1,9 @@
+/**
+ * 
+ * @author Michael Krapf
+ * 
+ */
+
 package org.ultimate.chess.model;
 
 public class Laeufer extends Figur
