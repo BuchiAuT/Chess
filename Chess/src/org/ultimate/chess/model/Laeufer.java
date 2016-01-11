@@ -8,9 +8,12 @@ package org.ultimate.chess.model;
 
 public class Laeufer extends Figur
 {	
+	public String name;
+	
 	public Laeufer(Position pos, String name)
 	{
 		super(pos,name);
+		name = "L";
 	}
 	
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)

@@ -8,9 +8,12 @@ package org.ultimate.chess.model;
 
 public class Dame extends Figur
 {	
+	public String name;
+
 	public Dame(Position pos, String name)
 	{
 		super(pos,name);
+		name = "D";
 	}
 	
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)

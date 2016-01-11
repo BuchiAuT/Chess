@@ -8,9 +8,12 @@ package org.ultimate.chess.model;
 
 public class Turm extends Figur
 {	
+	public String name;
+	
 	public Turm(Position pos, String name)
 	{
 		super(pos,name);
+		name = "T";
 	}
 	
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)
