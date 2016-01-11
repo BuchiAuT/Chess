@@ -7,13 +7,11 @@
 package org.ultimate.chess.test;
 
 import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.ultimate.chess.model.Dame;
 import org.ultimate.chess.model.Laeufer;
 import org.ultimate.chess.model.Position;
 
