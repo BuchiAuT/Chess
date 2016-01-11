@@ -3,26 +3,13 @@ package org.ultimate.chess.model;
 abstract class Figur 
 {
 	Position pos;
-
-	public Figur(Position pos)
-	{
-		this.pos = pos;
-	}
-
-	boolean farbeWeiss;
 	String name;
-	public Figur(Position pos,String name)
+	boolean farbeWeiss;
+	public Figur(Position pos,boolean farbeWeiss)
 	{	
-		this.name = name;
-		if(pos.getY()== 0 || pos.getY()== 1)
-		{
-			farbeWeiss = true;
-		}
-		else
-		{
-			farbeWeiss = false;
-		}
 		this.pos = pos;
+		this.farbeWeiss = farbeWeiss;
+		
 	}
 	public boolean getFarbe()
 	{
