@@ -13,20 +13,6 @@ public class Dame extends Figur
 		super(pos,name);
 	}
 	
-	public boolean spielZug(SpielFeld spielfeld, Position position)
-	{
-		boolean statement=false;
-		
-		if(spielzugMoeglich(spielfeld,position))
-		{
-			statement=true;
-			this.pos.setX(position.getX());
-			this.pos.setY(position.getY());
-		}
-				
-		return statement;
-	}
-	
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)
 	{
 		boolean statement=false;
@@ -176,5 +162,11 @@ public class Dame extends Figur
 		}
 		
 		return statement;
+	}
+
+	@Override
+	public boolean spielZug(SpielFeld sp, Position nach) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
