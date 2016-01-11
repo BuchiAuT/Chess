@@ -13,22 +13,6 @@ public class Laeufer extends Figur
 		super(pos,name);
 	}
 	
-	public boolean spielZug(SpielFeld spielfeld, Position position)
-	{
-		boolean statement=false;
-		// des steht da damit i's commiten kann...
-		
-		
-		if(spielzugMoeglich(spielfeld,position))
-		{
-			statement=true;
-			this.pos.setX(position.getX());
-			this.pos.setY(position.getY());
-		}
-				
-		return statement;
-	}
-	
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)
 	{
 		boolean statement=false;
@@ -108,5 +92,11 @@ public class Laeufer extends Figur
 		}
 						
 		return statement;
+	}
+
+	@Override
+	public boolean spielZug(SpielFeld sp, Position nach) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
