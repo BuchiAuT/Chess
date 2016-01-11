@@ -2,13 +2,15 @@ package org.ultimate.chess.model;
 
 public class König extends Figur
 {
-	// des steht da damit i's commiten kann...
 	private boolean kurzeRochadeMöglich;
 	private boolean langeRochadeMöglich;
+	
+	public String name;
 	
 	public König(Position pos, String name)
 	{
 		super(pos,name);
+		name="K";
 	}
 	
 	

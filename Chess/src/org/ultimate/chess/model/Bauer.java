@@ -4,15 +4,12 @@ public class Bauer extends Figur
 {	
 	private boolean eineFigurKannZurueckgeholtWerden;
 	
-	// es muss noch folgendes implementiert werden:
-	//						Es werden in den einzelnen Klassen nur Bewegungen von unten nach oben
-	//						realisiert! Es soll abgefragt werden welche Farbe am Zug ist...
-	//						Schwarz f‰hrt zum Beispiel von oben nach unten und Weiﬂ umgekehrt.
+	public String name;
 	
 	public Bauer(Position pos, String name)
 	{
 		super(pos,name);
-		// des steht da damit i's commiten kann...
+		name="B";
 	}
 	
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)

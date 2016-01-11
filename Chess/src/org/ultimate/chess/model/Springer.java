@@ -2,9 +2,12 @@ package org.ultimate.chess.model;
 
 public class Springer extends Figur
 {
+	public String name;
+	
 	public Springer(Position pos, String name)
 	{
 		super(pos,name);
+		name="S";
 	}
 		
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)
