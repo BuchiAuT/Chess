@@ -13,9 +13,12 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.ultimate.chess.model.Dame;
+import org.ultimate.chess.model.Laeufer;
+import org.ultimate.chess.model.Position;
 
-public class LaeuferTest {
-
+public class LaeuferTest 
+{
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -33,18 +36,22 @@ public class LaeuferTest {
 	}
 
 	@Test
-	public void testSpielZug() {
+	public void testSpielZug() 
+	{
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testSpielzugMoeglich() {
-		fail("Not yet implemented");
+	public void testSpielzugMoeglich() 
+	{
+		Position pos = new Position(1, 3);
+		Laeufer laeufer = new Laeufer(pos, "Läufer");
 	}
 
 	@Test
-	public void testLaeufer() {
+	public void testLaeufer() 
+	{
 		fail("Not yet implemented");
+		// Konstruktor
 	}
-
 }
