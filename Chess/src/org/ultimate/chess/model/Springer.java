@@ -6,22 +6,7 @@ public class Springer extends Figur
 	{
 		super(pos,name);
 	}
-	
-	public boolean spielZug(SpielFeld spielfeld, Position position)
-	{
-		// des steht da damit i's commiten kann...
-		boolean statement=false;
 		
-		if(spielzugMoeglich(spielfeld,position))
-		{
-			statement=true;
-			this.pos.setX(position.getX());
-			this.pos.setY(position.getY());
-		}
-		
-		return statement;
-	}
-	
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)
 	{
 		boolean statement=false;

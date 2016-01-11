@@ -11,19 +11,6 @@ public class König extends Figur
 		super(pos,name);
 	}
 	
-	public boolean spielZug(SpielFeld spielfeld, Position position)
-	{
-		boolean statement=false;
-		
-		if(spielzugMoeglich(spielfeld,position))
-		{
-			statement=true;
-			this.pos.setX(position.getX());
-			this.pos.setY(position.getY());
-		}
-		
-		return statement;
-	}
 	
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)
 	{
@@ -32,7 +19,6 @@ public class König extends Figur
 		byte spielfeldendeY=7;
 		
 		// Diagonal schlagen/fahren 	(links vor, rechts vor, links zurück, rechts zurück)	
-		
 		
 		if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()+1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()-1))) || (((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+1))))	
 		{	

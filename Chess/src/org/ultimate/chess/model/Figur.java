@@ -14,7 +14,7 @@ abstract class Figur
 	public Figur(Position pos,String name)
 	{	
 		this.name = name;
-		if(pos.getY()== 0 || pos.getX()== 1)
+		if(pos.getY()== 0 || pos.getY()== 1)
 		{
 			farbeWeiss = true;
 		}
@@ -40,7 +40,19 @@ public String toString()
 	return name.charAt(1)+",S";
 	}
 }
-	public abstract boolean spielZug(SpielFeld sp,Position nach);
+	public boolean spielZug(SpielFeld sp,Position nach)
+	{
+		boolean statement=false;
+		
+		if(spielzugMoeglich(sp,nach))
+		{
+			statement=true;
+			this.pos.setX(nach.getX());
+			this.pos.setY(nach.getY());
+		}
+				
+		return statement;
+	}
 
 	public abstract boolean spielzugMoeglich(SpielFeld sp, Position nach);
 }
