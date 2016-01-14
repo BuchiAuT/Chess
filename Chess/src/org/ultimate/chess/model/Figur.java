@@ -2,8 +2,8 @@ package org.ultimate.chess.model;
 
 abstract class Figur 
 {
-	Position pos;
-	String name;
+	private Position pos;
+	private String name;
 	boolean farbeWeiss;
 	public Figur(Position pos,boolean farbeWeiss)
 	{	
@@ -14,6 +14,14 @@ abstract class Figur
 	public boolean getFarbe()
 	{
 		return farbeWeiss;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public Position getPos()
+	{
+		return pos;
 	}
 @Override
 public String toString() 
