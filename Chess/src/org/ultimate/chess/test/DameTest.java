@@ -18,7 +18,6 @@ import org.ultimate.chess.model.Dame;
 import org.ultimate.chess.model.Position;
 import org.ultimate.chess.model.SpielFeld;
 import org.ultimate.chess.model.SpielfeldIO;
-
 import junit.framework.Assert;
 
 public class DameTest 
