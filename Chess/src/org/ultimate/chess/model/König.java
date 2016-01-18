@@ -1,4 +1,9 @@
 package org.ultimate.chess.model;
+/**
+ * 
+ * @author Tobias Möltner
+ *
+ */
 
 public class König extends Figur
 {
@@ -7,9 +12,9 @@ public class König extends Figur
 	
 	public String name;
 	
-	public König(Position pos, String name)
+	public König(Position pos, boolean farbeweiß)
 	{
-		super(pos,name);
+		super(pos,farbeweiß);
 		name="K";
 	}
 	

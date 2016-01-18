@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author Tobias Möltner
+ */
+
 package org.ultimate.chess.model;
 
 public class Bauer extends Figur
@@ -6,9 +11,9 @@ public class Bauer extends Figur
 	
 	public String name;
 	
-	public Bauer(Position pos, String name)
+	public Bauer(Position pos, boolean farbeweiß)
 	{
-		super(pos,name);
+		super(pos,farbeweiß);
 		name="B";
 	}
 	
@@ -21,13 +26,13 @@ public class Bauer extends Figur
 		// Diagonal schlagen Spieler weiß (rechts nach oben, links nach oben)
 		
 		
-		if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()+1))) && (this.getFarbe()==true))	
+		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))) || (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1))) && (this.getFarbe()==true))	
 		{	
-				if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+				if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht
 					{
-						spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
+						spielfeld.figuren.remove(spielfeld.holeFigur(position));		// Figur vom Spielfeld entfernen
 						
 						statement=true;
 					}
@@ -36,13 +41,13 @@ public class Bauer extends Figur
 		
 		// Diagonal schlagen Spieler schwarz (links nach unten, rechts nach unten)
 		
-		if((((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()-1))) || (((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()-1))) && (this.getFarbe()==false))	
+		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1))) || (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1))) && (this.getFarbe()==false))	
 		{	
-				if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY())==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+				if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht
 					{
-						spielfeld.figuren.remove(spielfeld.holeFigur(pos));		// Figur vom Spielfeld entfernen
+						spielfeld.figuren.remove(spielfeld.holeFigur(position));		// Figur vom Spielfeld entfernen
 						
 						statement=true;
 					}
@@ -53,9 +58,9 @@ public class Bauer extends Figur
 		
 		// 1 Feld nach vorne weiß (1 nach oben)	
 		
-		if(((position.getX())==(this.pos.getX())) && ((position.getY())==(this.pos.getY()+1)) && (this.getFarbe()==true)) 
+		if(((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+1)) && (this.getFarbe()==true)) 
 		{
-				if(((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
+				if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 				{					
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
 					{
@@ -71,9 +76,9 @@ public class Bauer extends Figur
 		}
 		
 		// 1 Feld nach vorne schwarz (1 nach unten)
-		if(((position.getX())==(this.pos.getX())) && ((position.getY())==(this.pos.getY()-1)) && (this.getFarbe()==false)) 
+		if(((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-1)) && (this.getFarbe()==false)) 
 		{
-				if(((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
+				if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 				{					
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
 					{
@@ -92,13 +97,13 @@ public class Bauer extends Figur
 		
 		// 2 gerade nach oben bewegen weiß , kann nur gemacht werden wenn y=1 (Y-Position des weißen Bauern zu Beginn des Spiels)	
 		
-		if(((position.getX())==(this.pos.getX())) && ((position.getY())==(this.pos.getY())+2) && (this.getFarbe()==true))
+		if(((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY())+2) && (this.getFarbe()==true))
 		{
-			if(((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY()))) // Abfragen ob generell keine Figur auf dem Feld steht 
+			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen ob generell keine Figur auf dem Feld steht 
 				{
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht
 					{
-						if(this.pos.getY()==1)	//weißer Bauer steht an Startposition
+						if(this.getPos().getY()==1)	//weißer Bauer steht an Startposition
 						{
 							statement=true;
 						}
@@ -109,13 +114,13 @@ public class Bauer extends Figur
 	
 		// 2 gerade nach unten bewegen schwarz , kann nur gemacht werden wenn y=6 (Y-Position des schwarzen Bauern zu Beginn des Spiels)	
 	
-		if(((position.getX())==(this.pos.getX())) && ((position.getY())==(this.pos.getY())-2) && (this.getFarbe()==false))
+		if(((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY())-2) && (this.getFarbe()==false))
 		{
-			if(((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY()))) // Abfragen ob generell keine Figur auf dem Feld steht 
+			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen ob generell keine Figur auf dem Feld steht 
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht
 				{
-					if(this.pos.getY()==6)	//schwarzer Bauer steht an Startposition
+					if(this.getPos().getY()==6)	//schwarzer Bauer steht an Startposition
 					{
 						statement=true;
 					}

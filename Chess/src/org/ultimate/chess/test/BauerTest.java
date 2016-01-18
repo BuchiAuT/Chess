@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author Tobias Möltner
+ */
+
 package org.ultimate.chess.test;
 
 import static org.junit.Assert.*;
@@ -7,6 +12,8 @@ import org.ultimate.chess.model.*;
 
 public class BauerTest 
 {
+	// so lafft des nit...
+	
 	Position pos1=new Position(3,1);
 	Bauer bauer1=new Bauer(pos1, "W");
 	

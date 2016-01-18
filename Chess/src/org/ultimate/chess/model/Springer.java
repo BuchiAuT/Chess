@@ -1,12 +1,19 @@
+/**
+ * 
+ * @author Tobias Mˆltner
+ */
+
 package org.ultimate.chess.model;
 
 public class Springer extends Figur
 {
 	public String name;
 	
-	public Springer(Position pos, String name)
+	// alle Figuren wie beim Bauern... also holeFigur(position) anstatt holeFigur(pos) und 
+	
+	public Springer(Position pos, boolean farbeweiﬂ)
 	{
-		super(pos,name);
+		super(pos,farbeweiﬂ);
 		name="S";
 	}
 		
@@ -17,9 +24,9 @@ public class Springer extends Figur
 		byte spielfeldendeY=7;
 	
 		// nach rechts vorne springen (x+1, y+2) 
-		if(((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()+2)))
+		if(((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+2)))
 		{
-			if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe())!=this.getFarbe()) || ((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY()))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
+			if((((spielfeld.holeFigur(getPos()).getPos().getX()==position.getX()) && (spielfeld.holeFigur(getPos()).getPos().getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe())!=this.getFarbe()) || ((spielfeld.holeFigur(pos).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()!=position.getY()))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
 				{
@@ -33,9 +40,9 @@ public class Springer extends Figur
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 		// nach rechts vorne springen2 (x+2, y+1)
-		if(((position.getX())==(this.pos.getX()+2)) && ((position.getY())==(this.pos.getY()+1)))
+		if(((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()+1)))
 		{
-			if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
+			if((((spielfeld.holeFigur(pos).getPos().getX()==position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
 				{
@@ -49,9 +56,9 @@ public class Springer extends Figur
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 		// nach links vorne springen (x-1, y+2)
-		if(((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()+2)))
+		if(((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+2)))
 		{
-			if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
+			if((((spielfeld.holeFigur(pos).getPos().getX()==position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
 				{
@@ -65,9 +72,9 @@ public class Springer extends Figur
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 		// nach links vorne springen2 (x-2, y+1)
-		if(((position.getX())==(this.pos.getX()-2)) && ((position.getY())==(this.pos.getY()+1)))
+		if(((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()+1)))
 		{
-			if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
+			if((((spielfeld.holeFigur(pos).getPos().getX()==position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
 				{
@@ -81,9 +88,9 @@ public class Springer extends Figur
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 		// nach rechts hinten springen (x+1, y-2)
-		if(((position.getX())==(this.pos.getX()+1)) && ((position.getY())==(this.pos.getY()-2)))
+		if(((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-2)))
 		{
-			if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
+			if((((spielfeld.holeFigur(pos).getPos().getX()==position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
 				{
@@ -98,9 +105,9 @@ public class Springer extends Figur
 
 
 		// nach rechts hinten springen2 (x+2, y-1)
-		if(((position.getX())==(this.pos.getX()+2)) && ((position.getY())==(this.pos.getY()-1)))
+		if(((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()-1)))
 		{
-			if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
+			if((((spielfeld.holeFigur(pos).getPos().getX()==position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
 				{
@@ -115,9 +122,9 @@ public class Springer extends Figur
 		
 
 		// nach links hinten springen (x-1, y-2)
-		if(((position.getX())==(this.pos.getX()-1)) && ((position.getY())==(this.pos.getY()-2)))
+		if(((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-2)))
 		{
-			if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
+			if((((spielfeld.holeFigur(pos).getPos().getX()==position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
 				{
@@ -132,9 +139,9 @@ public class Springer extends Figur
 		
 
 		// nach links hinten springen2 (x-2, y-1)
-		if(((position.getX())==(this.pos.getX()-2)) && ((position.getY())==(this.pos.getY()-1)))
+		if(((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()-1)))
 		{
-			if((((spielfeld.holeFigur(pos).pos.getX()==position.getX()) && (spielfeld.holeFigur(pos).pos.getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).pos.getX()!=position.getX()) && (spielfeld.holeFigur(pos).pos.getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
+			if((((spielfeld.holeFigur(pos).getPos().getX()==position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()==position.getY())) && (spielfeld.holeFigur(pos).getFarbe()!=this.getFarbe()) || ((spielfeld.holeFigur(pos).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(pos).getPos().getY()!=position.getY())))) 	// Abfragen ob eine gegnerische (andere Farbe) oder keine Figur auf dem Feld steht 
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auﬂerhalb des Feldes geht
 				{
