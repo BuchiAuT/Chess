@@ -53,7 +53,7 @@ public class LaeuferTest
 		try
 		{
 			SpielFeld sf = SpielfeldIO.einlesen("Dateiname");
-			Laeufer laeufer1 = (Laeufer)sf.getFeld(3,3);
+			Laeufer laeufer1 = (Laeufer)sf.holeFigur(pos);
 						
 			// nach rechts und nach oben
 			boolean beobachtet = laeufer1.spielzugMoeglich(sf, new Position(4,4));

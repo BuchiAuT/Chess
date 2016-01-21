@@ -53,7 +53,7 @@ public class TurmTest
 		try
 		{
 			SpielFeld sf = SpielfeldIO.einlesen("Dateiname");
-			Turm turm1 = (Turm)sf.getFeld(3,3);
+			Turm turm1 = (Turm)sf.holeFigur(pos);
 						
 			// nach oben
 			boolean beobachtet = turm1.spielzugMoeglich(sf, new Position(3,4));

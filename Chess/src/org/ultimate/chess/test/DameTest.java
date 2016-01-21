@@ -53,7 +53,7 @@ public class DameTest
 		try
 		{
 			SpielFeld sf = SpielfeldIO.einlesen("Dateiname");
-			Dame dame1 = (Dame)sf.getFeld(3,6);
+			Dame dame1 = (Dame)sf.holeFigur(pos);
 						
 			// 1 nach unten
 			boolean beobachtet = dame1.spielzugMoeglich(sf, new Position(3,5));
