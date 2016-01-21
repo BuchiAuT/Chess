@@ -52,7 +52,7 @@ public class LaeuferTest
 
 		try
 		{
-			SpielFeld sf = SpielfeldIO.einlesen("Dateiname");
+			SpielFeld sf = SpielfeldIO.einlesen("feld.txt");
 			Laeufer laeufer1 = (Laeufer)sf.holeFigur(pos);
 						
 			// nach rechts und nach oben

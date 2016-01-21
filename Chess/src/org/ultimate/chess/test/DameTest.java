@@ -52,7 +52,7 @@ public class DameTest
 		
 		try
 		{
-			SpielFeld sf = SpielfeldIO.einlesen("Dateiname");
+			SpielFeld sf = SpielfeldIO.einlesen("feld.txt");
 			Dame dame1 = (Dame)sf.holeFigur(pos);
 						
 			// 1 nach unten

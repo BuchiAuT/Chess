@@ -52,7 +52,7 @@ public class TurmTest
 		
 		try
 		{
-			SpielFeld sf = SpielfeldIO.einlesen("Dateiname");
+			SpielFeld sf = SpielfeldIO.einlesen("feld.txt");
 			Turm turm1 = (Turm)sf.holeFigur(pos);
 						
 			// nach oben
