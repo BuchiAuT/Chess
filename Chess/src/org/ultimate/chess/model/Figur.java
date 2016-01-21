@@ -2,7 +2,7 @@ package org.ultimate.chess.model;
 
 abstract class Figur 
 {
-	private Position pos;
+	Position pos;
 	private String name;
 	boolean farbeWeiss;
 	public Figur(Position pos,boolean farbeWeiss)

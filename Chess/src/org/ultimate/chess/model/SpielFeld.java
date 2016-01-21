@@ -13,15 +13,6 @@ public class SpielFeld {
 		istSchach = false;
 		Position pos = new Position(1,0);
 		figuren = new ArrayList<Figur>();
-		for(int i = 0; i < 9;i++)
-		{
-			pos.setX(i);
-			figuren.add(new Bauer(pos,"Bauer"));
-			pos.setY(6);
-			figuren.add(new Bauer(pos,"Bauer"));
-			pos.setX(1);
-		}
-		restlicheFigurenLaden(pos);
 		werAmZug = true;
 	}
 	public Figur holeFigur(Position pos)
@@ -128,58 +119,5 @@ public class SpielFeld {
 		pos.setX(spielzug.charAt(0) - 97);
 		pos.setX(spielzug.charAt(1));
 		return pos;
-	}
-	private void restlicheFigurenLaden(Position pos)
-	{
-		pos.setX(2);
-		pos.setY(0);
-		figuren.add(new Springer(pos,"Springer"));
-		pos.setX(2);
-		pos.setY(7);
-		figuren.add(new Springer(pos,"Springer"));
-		pos.setX(3);
-		pos.setY(0);
-		figuren.add(new Laeufer(pos,"Laeufer"));
-		pos.setX(3);
-		pos.setY(7);
-		figuren.add(new Laeufer(pos,"Laeufer"));
-		pos.setX(0);
-		pos.setY(0);
-		figuren.add(new Turm(pos,"Turm"));
-		pos.setX(0);
-		pos.setY(7);
-		figuren.add(new Turm(pos,"Turm"));
-		pos.setX(4);
-		pos.setY(0);
-		figuren.add(new Dame(pos,"Dame"));
-		pos.setX(4);
-		pos.setY(7);
-		figuren.add(new Dame(pos,"Dame"));
-		pos.setX(5);
-		pos.setY(0);
-		königWeiss = new König(pos,"König");
-		figuren.add(königWeiss);
-		pos.setX(5);
-		pos.setY(7);
-		königSchwarz = new König(pos,"König");
-		figuren.add(königSchwarz);
-		pos.setX(6);
-		pos.setY(0);
-		figuren.add(new Springer(pos,"Springer"));
-		pos.setX(6);
-		pos.setY(7);
-		figuren.add(new Springer(pos,"Springer"));
-		pos.setX(5);
-		pos.setY(0);
-		figuren.add(new Laeufer(pos,"Laeufer"));
-		pos.setX(5);
-		pos.setY(7);
-		figuren.add(new Laeufer(pos,"Laeufer"));
-		pos.setX(7);
-		pos.setY(0);
-		figuren.add(new Turm(pos,"Turm"));
-		pos.setX(7);
-		pos.setY(7);
-		figuren.add(new Turm(pos,"Turm"));
 	}
 }
