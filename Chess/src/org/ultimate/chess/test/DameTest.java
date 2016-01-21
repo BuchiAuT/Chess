@@ -78,6 +78,22 @@ public class DameTest
 			// 1 nach links
 			beobachtet = dame1.spielzugMoeglich(sf, new Position(2,6));
 			Assert.assertTrue(beobachtet);
+			
+			// 1 nach links und 1 nach oben
+			beobachtet = dame1.spielzugMoeglich(sf, new Position(2,7));
+			Assert.assertTrue(beobachtet);
+						
+			// 1 nach links und 1 nach unten
+			beobachtet = dame1.spielzugMoeglich(sf, new Position(2,5));
+			Assert.assertTrue(beobachtet);
+						
+			// 1 nach rechts und 1 nach oben
+			beobachtet = dame1.spielzugMoeglich(sf, new Position(4,7));
+			Assert.assertTrue(beobachtet);
+						
+			// 1 nach rechts und 1 nach unten
+			beobachtet = dame1.spielzugMoeglich(sf, new Position(4,5));
+			Assert.assertTrue(beobachtet);
 		}
 		catch(FileNotFoundException exception)
 		{
