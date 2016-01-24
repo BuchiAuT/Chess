@@ -47,52 +47,51 @@ public class DameTest
 	@Test
 	public void testSpielzugMoeglich() 
 	{
-		Position pos = new Position(1, 5);
-		Dame dame = new Dame(pos, true);
+		Position pos = new Position(4,6);
 		
 		try
 		{
-			SpielFeld sf = SpielfeldIO.einlesen("feld.txt");
-			Dame dame1 = (Dame)sf.holeFigur(pos);
+			SpielFeld sf = SpielfeldIO.einlesen("DameTestFile.txt");
+			Dame dame = (Dame)sf.holeFigur(pos);
 						
 			// 1 nach unten
-			boolean beobachtet = dame1.spielzugMoeglich(sf, new Position(3,5));
-			Assert.assertFalse(beobachtet);
-						
-			// 2 nach unten
-			beobachtet = dame1.spielzugMoeglich(sf, new Position(3,4));
+			boolean beobachtet = dame.spielzugMoeglich(sf, new Position(4,5));
 			Assert.assertTrue(beobachtet);
 						
+			// 2 nach unten
+			beobachtet = dame.spielzugMoeglich(sf, new Position(3,4));
+			Assert.assertFalse(beobachtet);
+						
 			// 3 nach unten
-			beobachtet = dame1.spielzugMoeglich(sf, new Position(3,3));
+			beobachtet = dame.spielzugMoeglich(sf, new Position(3,3));
 			Assert.assertTrue(beobachtet);
 			
 			// 1 nach oben
-			beobachtet = dame1.spielzugMoeglich(sf, new Position(3,7));
+			beobachtet = dame.spielzugMoeglich(sf, new Position(3,7));
 			Assert.assertTrue(beobachtet);
 				
 			// 1 nach rechts
-			beobachtet = dame1.spielzugMoeglich(sf, new Position(4,6));
+			beobachtet = dame.spielzugMoeglich(sf, new Position(4,6));
 			Assert.assertTrue(beobachtet);
 			
 			// 1 nach links
-			beobachtet = dame1.spielzugMoeglich(sf, new Position(2,6));
+			beobachtet = dame.spielzugMoeglich(sf, new Position(2,6));
 			Assert.assertTrue(beobachtet);
 			
 			// 1 nach links und 1 nach oben
-			beobachtet = dame1.spielzugMoeglich(sf, new Position(2,7));
+			beobachtet = dame.spielzugMoeglich(sf, new Position(2,7));
 			Assert.assertTrue(beobachtet);
 						
 			// 1 nach links und 1 nach unten
-			beobachtet = dame1.spielzugMoeglich(sf, new Position(2,5));
+			beobachtet = dame.spielzugMoeglich(sf, new Position(2,5));
 			Assert.assertTrue(beobachtet);
 						
 			// 1 nach rechts und 1 nach oben
-			beobachtet = dame1.spielzugMoeglich(sf, new Position(4,7));
+			beobachtet = dame.spielzugMoeglich(sf, new Position(4,7));
 			Assert.assertTrue(beobachtet);
 						
 			// 1 nach rechts und 1 nach unten
-			beobachtet = dame1.spielzugMoeglich(sf, new Position(4,5));
+			beobachtet = dame.spielzugMoeglich(sf, new Position(4,5));
 			Assert.assertTrue(beobachtet);
 		}
 		catch(FileNotFoundException exception)
