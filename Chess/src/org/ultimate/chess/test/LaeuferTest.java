@@ -44,31 +44,39 @@ public class LaeuferTest
 		fail("Not yet implemented");
 	}
 
+	Position pos1 = new Position(6,2);
+	Laeufer laeufer1 = new Laeufer(pos1, true);
+	
 	@Test
 	public void testSpielzugMoeglich() 
 	{
-		Position pos = new Position(1, 3);
+		Position pos = new Position(2,7);
+		Position pos2 = new Position(6,6);
 
 		try
 		{
-			SpielFeld sf = SpielfeldIO.einlesen("feld.txt");
+			SpielFeld sf = SpielfeldIO.einlesen("LaeuferTestFile1.txt");
 			Laeufer laeufer = (Laeufer)sf.holeFigur(pos);
 						
-			// nach rechts und nach oben
-			boolean beobachtet = laeufer.spielzugMoeglich(sf, new Position(4,4));
+			// kann nicht fahren, Bauer im Weg
+			boolean beobachtet = laeufer.spielzugMoeglich(sf, new Position(1,6));
 			Assert.assertFalse(beobachtet);
 						
-			// nach rechts und nach unten
-			beobachtet = laeufer.spielzugMoeglich(sf, new Position(4,2));
+			// kann nicht fahren, Bauer im Weg
+			beobachtet = laeufer.spielzugMoeglich(sf, new Position(3,6));
 			Assert.assertFalse(beobachtet);
 			
-			// nach links und nach unten
-			beobachtet = laeufer.spielzugMoeglich(sf, new Position(2,2));
-			Assert.assertFalse(beobachtet);
+// --------------------------------------------------------------------------------------
+			SpielFeld sf2 = SpielfeldIO.einlesen("LaeuferTestFile2.txt");
+			Laeufer laeufer2 = (Laeufer)sf2.holeFigur(pos2);
 			
-			// nach links und nach oben
-			beobachtet = laeufer.spielzugMoeglich(sf, new Position(2,4));
-			Assert.assertFalse(beobachtet);
+			// kann nicht schlagen, da Bauer im Weg
+			boolean beobachtet2 = laeufer.spielzugMoeglich(sf2, new Position(0,0));
+			Assert.assertFalse(beobachtet2);
+			
+			// kann den Bauer schlagen
+		    beobachtet2 = laeufer.spielzugMoeglich(sf2, new Position(1,1));
+			Assert.assertTrue(beobachtet2);	
 		}
 		catch(FileNotFoundException exception)
 		{
@@ -80,7 +88,7 @@ public class LaeuferTest
 	@Test
 	public void testLaeufer() 
 	{
-		fail("Not yet implemented");
-		// Konstruktor
+		Laeufer laeufer2 = laeufer1;
+		assertEquals(laeufer1, laeufer2);
 	}
 }
