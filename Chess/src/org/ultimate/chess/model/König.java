@@ -79,7 +79,17 @@ public class König extends Figur
 		}
 		
 		return statement;
-		
+				
+	}
+	
+	public boolean getLangeRochade()
+	{
+		return langeRochadeMöglich;
+	}
+	
+	public boolean getKurzeRochade()
+	{
+		return kurzeRochadeMöglich;
 	}
 	
 }

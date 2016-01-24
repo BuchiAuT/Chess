@@ -16,44 +16,44 @@ import junit.framework.Assert;
 
 public class BauerTest 
 {
-	// so lafft des nit...
+	Position pos1=new Position(1,4);
+	Position pos2=new Position(1,4);
 	
-	Position pos1=new Position(3,1);
-	Bauer bauer1=new Bauer(pos1, "W");
+	Bauer bauer1=new Bauer(pos1,true); //weißer Bauer
+	Bauer bauer2=new Bauer(pos2,true); //schwarzer Bauer
 	
-	Position pos2=new Position(3,1);
-	Bauer bauer2=new Bauer(pos2,"W");
-
 	@Test
 	public void testSpielzugMoeglich() 
 	{
 		try
 		{
-			// Bernie muss Spielfeld einlesen noch machen...
-			SpielFeld sf=SpielfeldIO.einlesen("dateeeeinamealda");
-			Bauer bauer=(Bauer)sf.getFeld(3,6);
+			// Im Textfile sollten auf Positionen (2,5) und (4,5) weiße Figuren stehen
+			// Und auf Position (3,6) ein schwarzer Bauer
+			Position position=new Position(3,6);
+			SpielFeld sf=SpielfeldIO.einlesen("Bauertest-Textdatei.txt");
+			Bauer bauer=(Bauer)sf.holeFigur(position);
 			
 			// ein Bauer der Farbe schwarz wird getestet (von oben nach unten)
 			
 			// 3 nach unten (sollte nicht möglich sein)
-			boolean beobachtet =b.spielzugMoeglich(sf, new Position(3,3));
+			boolean beobachtet =bauer.spielzugMoeglich(sf, new Position(3,3));
 			Assert.assertFalse(beobachtet);
 			
 			// 2 nach unten am Spielbeginn (nur am Anfang möglich)
-			beobachtet=b.spielzugMoeglich(sf, new Position(3,4));
+			beobachtet=bauer.spielzugMoeglich(sf, new Position(3,4));
 			Assert.assertTrue(beobachtet);
 			
 			// 1 nach unten am Spielbeginn
-			beobachtet=b.spielzugMoeglich(sf, new Position(3,5));
+			beobachtet=bauer.spielzugMoeglich(sf, new Position(3,5));
 			Assert.assertTrue(beobachtet);
 			
 			// 1x Diagonal nach unten links schlagen
-			beobachtet=b.spielzugMoeglich(sf, new Position(2,5));
-			Assert.assertFalse(beobachtet); // <-- falls keine eigene Figur auf diesem Feld steht, auf asserTrue ändern!
+			beobachtet=bauer.spielzugMoeglich(sf, new Position(2,5));
+			Assert.assertTrue(beobachtet); // 
 			
 			// 1x Diagonal nach unten rechts schlagen
-			beobachtet=b.spielzugMoeglich(sf, new Position(4,5));
-			Assert.assertFalse(beobachtet); // <-- falls keine eigene Figur auf diesem Feld steht, auf asserTrue ändern!
+			beobachtet=bauer.spielzugMoeglich(sf, new Position(4,5));
+			Assert.assertTrue(beobachtet); // <-- falls keine eigene Figur auf diesem Feld steht, auf asserTrue ändern!
 			
 		}catch (FileNotFoundException exception)
 		{
@@ -65,7 +65,9 @@ public class BauerTest
 	@Test
 	public void testBauer() 
 	{
-		assertEquals(bauer1, bauer2);
+		Bauer bauer3=bauer1;
+	
+		assertEquals(bauer1, bauer3);
 	}
 
 	@Test
