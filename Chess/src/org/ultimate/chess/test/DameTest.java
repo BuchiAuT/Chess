@@ -15,6 +15,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.ultimate.chess.model.Bauer;
 import org.ultimate.chess.model.Dame;
+import org.ultimate.chess.model.König;
 import org.ultimate.chess.model.Position;
 import org.ultimate.chess.model.SpielFeld;
 import org.ultimate.chess.model.SpielfeldIO;
@@ -44,55 +45,83 @@ public class DameTest
 		fail("Not yet implemented");
 	}
 
+	Position pos1 = new Position(6,2);
+	Dame dame1 = new Dame(pos1, true);
+	
 	@Test
 	public void testSpielzugMoeglich() 
 	{
-		Position pos = new Position(4,6);
+		Position pos = new Position(4,4);
+		Position pos2 = new Position(4,5);
 		
 		try
 		{
-			SpielFeld sf = SpielfeldIO.einlesen("DameTestFile.txt");
-			Dame dame = (Dame)sf.holeFigur(pos);
+			SpielFeld sf1 = SpielfeldIO.einlesen("DameTestFile1.txt");
+			SpielFeld sf2 = SpielfeldIO.einlesen("DameTestFile2.txt");
+			
+			Dame dame1 = (Dame)sf1.holeFigur(pos);
 						
 			// 1 nach unten
-			boolean beobachtet = dame.spielzugMoeglich(sf, new Position(4,5));
+			boolean beobachtet = dame1.spielzugMoeglich(sf1, new Position(4,3));
 			Assert.assertTrue(beobachtet);
 						
 			// 2 nach unten
-			beobachtet = dame.spielzugMoeglich(sf, new Position(3,4));
-			Assert.assertFalse(beobachtet);
-						
-			// 3 nach unten
-			beobachtet = dame.spielzugMoeglich(sf, new Position(3,3));
+			beobachtet = dame1.spielzugMoeglich(sf1, new Position(4,2));
 			Assert.assertTrue(beobachtet);
 			
 			// 1 nach oben
-			beobachtet = dame.spielzugMoeglich(sf, new Position(3,7));
+			beobachtet = dame1.spielzugMoeglich(sf1, new Position(4,5));
 			Assert.assertTrue(beobachtet);
+			
+			// 4 nach oben
+			beobachtet = dame1.spielzugMoeglich(sf1, new Position(4,8));
+			Assert.assertFalse(beobachtet);
 				
 			// 1 nach rechts
-			beobachtet = dame.spielzugMoeglich(sf, new Position(4,6));
+			beobachtet = dame1.spielzugMoeglich(sf1, new Position(5,4));
 			Assert.assertTrue(beobachtet);
 			
 			// 1 nach links
-			beobachtet = dame.spielzugMoeglich(sf, new Position(2,6));
+			beobachtet = dame1.spielzugMoeglich(sf1, new Position(3,4));
 			Assert.assertTrue(beobachtet);
 			
 			// 1 nach links und 1 nach oben
-			beobachtet = dame.spielzugMoeglich(sf, new Position(2,7));
+			beobachtet = dame1.spielzugMoeglich(sf1, new Position(3,5));
 			Assert.assertTrue(beobachtet);
 						
 			// 1 nach links und 1 nach unten
-			beobachtet = dame.spielzugMoeglich(sf, new Position(2,5));
+			beobachtet = dame1.spielzugMoeglich(sf1, new Position(3,3));
 			Assert.assertTrue(beobachtet);
 						
 			// 1 nach rechts und 1 nach oben
-			beobachtet = dame.spielzugMoeglich(sf, new Position(4,7));
+			beobachtet = dame1.spielzugMoeglich(sf1, new Position(5,5));
 			Assert.assertTrue(beobachtet);
 						
 			// 1 nach rechts und 1 nach unten
-			beobachtet = dame.spielzugMoeglich(sf, new Position(4,5));
+			beobachtet = dame1.spielzugMoeglich(sf1, new Position(5,3));
 			Assert.assertTrue(beobachtet);
+			
+			// 1 nach rechts und 1 nach unten
+			beobachtet = dame1.spielzugMoeglich(sf1, new Position(2,3));
+			Assert.assertFalse(beobachtet);
+// --------------------------------------------------------------------------------------
+			Dame dame2 = (Dame)sf2.holeFigur(pos2);
+			
+			// an Position des eigenen Bauers fahren --> sollte nicht möglich sein
+			boolean beobachtet2 = dame2.spielzugMoeglich(sf2, new Position(7,5));
+			Assert.assertFalse(beobachtet2);
+									
+			// Turm des Gegners schlagen --> nicht möglich da Bauer davor steht
+			beobachtet = dame2.spielzugMoeglich(sf2, new Position(7,0));
+			Assert.assertFalse(beobachtet2);
+						
+			// Bauer des Gegners schlagen --> sollte möglich sein
+			beobachtet = dame2.spielzugMoeglich(sf2, new Position(6,1));
+			Assert.assertTrue(beobachtet2);
+						
+			// Bauer schlagen (4,3) --> sollte möglich sein
+			beobachtet = dame2.spielzugMoeglich(sf2, new Position(4,3));
+			Assert.assertTrue(beobachtet2);	
 		}
 		catch(FileNotFoundException exception)
 		{
@@ -104,7 +133,7 @@ public class DameTest
 	@Test
 	public void testDame() 
 	{
-		fail("Not yet implemented");
-		// Konstruktor
+		Dame dame2 = dame1;
+		assertEquals(dame1, dame2);
 	}
 }
