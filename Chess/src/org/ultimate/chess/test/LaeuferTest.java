@@ -44,7 +44,7 @@ public class LaeuferTest
 		fail("Not yet implemented");
 	}
 
-	Position pos1 = new Position(6,2);
+	Position pos1 = new Position(5,0);
 	Laeufer laeufer1 = new Laeufer(pos1, true);
 	
 	@Test

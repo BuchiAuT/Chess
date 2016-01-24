@@ -45,7 +45,7 @@ public class DameTest
 		fail("Not yet implemented");
 	}
 
-	Position pos1 = new Position(6,2);
+	Position pos1 = new Position(4,0);
 	Dame dame1 = new Dame(pos1, true);
 	
 	@Test
