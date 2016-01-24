@@ -4,20 +4,14 @@ import java.util.ArrayList;
 public class SpielFeld {
 	ArrayList<Figur> figuren;
 	boolean werAmZug; //weiss = true
-	boolean schachFarbe;
-	private König königSchwarz;
-	private König königWeiss;
-	boolean istSchach;
 	public SpielFeld()
 	{
-		istSchach = false;
-		Position pos = new Position(1,0);
 		figuren = new ArrayList<Figur>();
 		werAmZug = true;
 	}
 	public Figur holeFigur(Position pos)
 	{
-		for(int i = 0; i < 24;i++)
+		for(int i = 0; i < figuren.size() ;i++)
 		{
 			if(figuren.get(i).pos == pos)
 			{
@@ -57,38 +51,56 @@ public class SpielFeld {
 	}
 	public boolean Schach()
 	{
-		istSchach = false;
-		for(int i = 0; i < 24;i++)
+		boolean schach = false;
+		for(int i = 0; i<figuren.size();i++)
 		{
-			if(figuren.get(i).spielzugMoeglich(this, königSchwarz.pos))
+			Position nach = null;
+			//get König weiß
+			for(int u = 0; u<figuren.size();u++)
 			{
-				schachFarbe =false;
-				istSchach = true;
-				return true;
+				if(figuren.get(u).getName() == "K" && figuren.get(u).getFarbe() == true)
+				{
+				nach = figuren.get(u).getPos();	
+				}
 			}
-			if(figuren.get(i).spielzugMoeglich(this, königWeiss.pos))
+			if(figuren.get(i).spielzugMoeglich(this, nach))
 			{
-				schachFarbe =true;
-				istSchach = true;
-				return false;
-			}		
+				schach = true;
+			}
+			//get König schwarz
+			for(int u = 0; u<figuren.size();u++)
+			{
+				if(figuren.get(u).getName() == "K" && figuren.get(u).getFarbe() == false)
+				{
+				nach = figuren.get(u).getPos();	
+				}
+			}
+			if(figuren.get(i).spielzugMoeglich(this, nach))
+			{
+				schach = true;
+			}
 		}
-		return true;
+		return schach;
 	}
 	public boolean schachMatt()
 	{
-		if(istSchach)
+		boolean schachmatt = false;
+		for(int i = 0; i<figuren.size();i++)
 		{
-		if(!figuren.contains(königSchwarz))
-		{
-			return true;
+			if(figuren.get(i).getName() == "K" && figuren.get(i).getFarbe() == false)
+			{
+				schachmatt = true;
+			}
+			if(figuren.get(i).getName() == "K" && figuren.get(i).getFarbe() == true)
+			{
+				schachmatt = true;
+			}
+			if(schachmatt)
+			{
+				return schachmatt;
+			}
 		}
-		if(!figuren.contains(königWeiss))
-		{
-			return true;
-		}
-		}
-		return false;
+		return schachmatt;
 	}
 	public void spielzug(String spielzug)
 	{
@@ -116,8 +128,8 @@ public class SpielFeld {
 	{
 		Position pos = new Position(0,0);
 		spielzug = spielzug.toLowerCase();
-		pos.setX(spielzug.charAt(0) - 97);
-		pos.setX(spielzug.charAt(1));
+		pos.setX(Integer.valueOf(spielzug, spielzug.indexOf(0)));
+		pos.setY(Integer.valueOf(spielzug, spielzug.indexOf(1)));
 		return pos;
 	}
 }

@@ -4,7 +4,7 @@ abstract class Figur
 {
 	Position pos;
 	private String name;
-	boolean farbeWeiss;
+	boolean farbeWeiss; //true = weiﬂ
 	public Figur(Position pos,boolean farbeWeiss)
 	{	
 		this.pos = pos;
@@ -42,6 +42,13 @@ public String toString()
 		if(spielzugMoeglich(sp,nach))
 		{
 			statement=true;
+			for(int i = 0; i < sp.figuren.size();i++)
+			{
+				if(sp.figuren.get(i).getPos() == nach)
+				{
+					sp.figuren.remove(i);
+				}
+			}
 			this.pos.setX(nach.getX());
 			this.pos.setY(nach.getY());
 		}
