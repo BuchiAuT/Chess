@@ -48,27 +48,26 @@ public class LaeuferTest
 	public void testSpielzugMoeglich() 
 	{
 		Position pos = new Position(1, 3);
-		Laeufer laeufer = new Laeufer(pos, true);
 
 		try
 		{
 			SpielFeld sf = SpielfeldIO.einlesen("feld.txt");
-			Laeufer laeufer1 = (Laeufer)sf.holeFigur(pos);
+			Laeufer laeufer = (Laeufer)sf.holeFigur(pos);
 						
 			// nach rechts und nach oben
-			boolean beobachtet = laeufer1.spielzugMoeglich(sf, new Position(4,4));
+			boolean beobachtet = laeufer.spielzugMoeglich(sf, new Position(4,4));
 			Assert.assertFalse(beobachtet);
 						
 			// nach rechts und nach unten
-			beobachtet = laeufer1.spielzugMoeglich(sf, new Position(4,2));
+			beobachtet = laeufer.spielzugMoeglich(sf, new Position(4,2));
 			Assert.assertFalse(beobachtet);
 			
 			// nach links und nach unten
-			beobachtet = laeufer1.spielzugMoeglich(sf, new Position(2,2));
+			beobachtet = laeufer.spielzugMoeglich(sf, new Position(2,2));
 			Assert.assertFalse(beobachtet);
 			
 			// nach links und nach oben
-			beobachtet = laeufer1.spielzugMoeglich(sf, new Position(2,4));
+			beobachtet = laeufer.spielzugMoeglich(sf, new Position(2,4));
 			Assert.assertFalse(beobachtet);
 		}
 		catch(FileNotFoundException exception)
