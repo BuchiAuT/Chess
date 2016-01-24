@@ -58,7 +58,7 @@ public class SpielfeldIO
 
 	public static void main(String[] args) throws FileNotFoundException
 	{
-		SpielFeld sf = SpielfeldIO.einlesen("c:\\Temp\\feld1.txt");
+		SpielFeld sf = SpielfeldIO.einlesen("feld.txt");
 	}
 
 }
