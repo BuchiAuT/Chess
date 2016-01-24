@@ -44,7 +44,7 @@ public class SpielfeldIO
 		while (s.hasNextLine())
 		{
 			String line = s.nextLine(); //z.B. TW|SW|LW|DW|KW|LW|SW|TW
-			String[] figs = line.split("\\|");	//z.B. figs = {"TW", "SW" ,... }	
+			String[] figs = line.split("|");	//z.B. figs = {"TW", "SW" ,... }	
 			for (int spalte = 0; spalte < figs.length;spalte++)
 			{
 				Figur f = leseFeld(figs[spalte]); 
