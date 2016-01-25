@@ -31,8 +31,6 @@ public class Laeufer extends Figur
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
 				{
-					spielfeld.figuren.remove(spielfeld.holeFigur(position));		// Figur vom Spielfeld entfernen
-						
 					statement=true;
 				}
 			}
@@ -48,7 +46,7 @@ public class Laeufer extends Figur
 			{					
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
 				{
-						statement=true;
+					statement=true;
 				}
 			}
 		}
