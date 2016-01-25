@@ -55,7 +55,7 @@ public class TurmTest
 		
 		try
 		{
-			SpielFeld sf = SpielfeldIO.einlesen("TurmTestFile1.txt");
+			SpielFeld sf = SpielfeldIO.einlesen("TestData/TurmTestFile1.txt");
 			Turm turm1 = (Turm)sf.holeFigur(pos);
 						
 			// nach rechts, sollte nicht gehen da eingesperrt
@@ -68,7 +68,7 @@ public class TurmTest
 			
 // --------------------------------------------------------------------------------------
 			
-			SpielFeld sf2 = SpielfeldIO.einlesen("TurmTestFile2.txt");
+			SpielFeld sf2 = SpielfeldIO.einlesen("TestData/TurmTestFile2.txt");
 			Turm turm2 = (Turm)sf2.holeFigur(pos2);
 			
 			// Turm des Gegners schlagen, nicht möglich da Bauer davor steht

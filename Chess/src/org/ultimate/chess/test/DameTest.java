@@ -56,8 +56,8 @@ public class DameTest
 		
 		try
 		{
-			SpielFeld sf1 = SpielfeldIO.einlesen("DameTestFile1.txt");
-			SpielFeld sf2 = SpielfeldIO.einlesen("DameTestFile2.txt");
+			SpielFeld sf1 = SpielfeldIO.einlesen("TestData/DameTestFile1.txt");
+			SpielFeld sf2 = SpielfeldIO.einlesen("TestData/DameTestFile2.txt");
 			
 			Dame dame1 = (Dame)sf1.holeFigur(pos);
 						

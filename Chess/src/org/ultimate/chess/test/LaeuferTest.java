@@ -55,7 +55,7 @@ public class LaeuferTest
 
 		try
 		{
-			SpielFeld sf = SpielfeldIO.einlesen("LaeuferTestFile1.txt");
+			SpielFeld sf = SpielfeldIO.einlesen("TestData/LaeuferTestFile1.txt");
 			Laeufer laeufer = (Laeufer)sf.holeFigur(pos);
 						
 			// kann nicht fahren, Bauer im Weg
@@ -67,7 +67,7 @@ public class LaeuferTest
 			Assert.assertFalse(beobachtet);
 			
 // --------------------------------------------------------------------------------------
-			SpielFeld sf2 = SpielfeldIO.einlesen("LaeuferTestFile2.txt");
+			SpielFeld sf2 = SpielfeldIO.einlesen("TestData/LaeuferTestFile2.txt");
 			Laeufer laeufer2 = (Laeufer)sf2.holeFigur(pos2);
 			
 			// kann nicht schlagen, da Bauer im Weg
