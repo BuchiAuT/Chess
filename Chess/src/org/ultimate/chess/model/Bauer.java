@@ -31,9 +31,7 @@ public class Bauer extends Figur
 				if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
-					{
-						spielfeld.figuren.remove(spielfeld.holeFigur(position));		// Figur vom Spielfeld entfernen
-						
+					{						
 						statement=true;
 					}
 				}
@@ -46,9 +44,7 @@ public class Bauer extends Figur
 				if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
-					{
-						spielfeld.figuren.remove(spielfeld.holeFigur(position));		// Figur vom Spielfeld entfernen
-						
+					{		
 						statement=true;
 					}
 				}
