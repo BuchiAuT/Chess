@@ -19,8 +19,8 @@ public class SpielfeldIO
 		char farbe = f.charAt(1); //z.B. W für Weiss
 		boolean farbeW = (farbe == 'W');
 		Position pos = new Position(0,0);
-		int posx = f.charAt(2);
-		int posy = f.charAt(3);
+		int posx = f.charAt(2)-48;
+		int posy = f.charAt(3)-48;
 		pos.setX(posx);
 		pos.setY(posy);
 		Figur f1 = new Bauer(pos,farbeW);
@@ -44,7 +44,7 @@ public class SpielfeldIO
 		while (s.hasNextLine())
 		{
 			String line = s.nextLine(); //z.B. TW|SW|LW|DW|KW|LW|SW|TW
-			String[] figs = line.split("|");	//z.B. figs = {"TW", "SW" ,... }	
+			String[] figs = line.split("\\|");	//z.B. figs = {"TW", "SW" ,... }	
 			for (int spalte = 0; spalte < figs.length;spalte++)
 			{
 				Figur f = leseFeld(figs[spalte]); 
@@ -58,7 +58,7 @@ public class SpielfeldIO
 
 	public static void main(String[] args) throws FileNotFoundException
 	{
-		SpielFeld sf = SpielfeldIO.einlesen("feld.txt");
+		SpielFeld sf = SpielfeldIO.einlesen("TestData/Schachfeld.txt");
 	}
 
 }

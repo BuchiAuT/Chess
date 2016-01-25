@@ -49,7 +49,7 @@ public class SpielFeld {
 		}
 		
 	}
-	public boolean Schach()
+	public boolean schach()
 	{
 		boolean schach = false;
 		for(int i = 0; i<figuren.size();i++)
@@ -114,7 +114,7 @@ public class SpielFeld {
 				figuren.get(i).spielZug(this, posZiel);
 			}
 		}
-		if(Schach())
+		if(schach())
 		{
 			System.out.println("Schach");
 			if(schachMatt())
