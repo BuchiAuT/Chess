@@ -1,6 +1,6 @@
 package org.ultimate.chess.model;
 
-abstract class Figur 
+public class Figur 
 {
 	Position pos;
 	private String name;
@@ -55,6 +55,8 @@ public String toString()
 				
 		return statement;
 	}
-
-	public abstract boolean spielzugMoeglich(SpielFeld sp, Position nach);
+	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)
+	{
+		return false;
+	}
 }

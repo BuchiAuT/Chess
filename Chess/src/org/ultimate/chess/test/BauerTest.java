@@ -30,7 +30,7 @@ public class BauerTest
 			// Im Textfile sollten auf Positionen (2,5) und (4,5) weiﬂe Figuren stehen
 			// Und auf Position (3,6) ein schwarzer Bauer
 			Position position=new Position(3,6);
-			SpielFeld sf=SpielfeldIO.einlesen("Bauertest-Textdatei.txt");
+			SpielFeld sf=SpielfeldIO.einlesen("TestData/Bauertest-Textdatei.txt");
 			Bauer bauer=(Bauer)sf.holeFigur(position);
 			
 			// ein Bauer der Farbe schwarz wird getestet (von oben nach unten)

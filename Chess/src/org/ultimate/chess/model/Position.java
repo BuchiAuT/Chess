@@ -25,4 +25,9 @@ public class Position
 	{
 		return y;
 	}
+	@Override
+	public boolean equals(Object arg0) {
+	 Position p = (Position)arg0;
+		return p.getX() == x &&  p.getY() == y;
+	}
 }

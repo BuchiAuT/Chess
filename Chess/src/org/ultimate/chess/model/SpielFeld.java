@@ -1,6 +1,8 @@
 package org.ultimate.chess.model;
 import java.util.ArrayList;
 
+import org.ultimate.chess.GUI.SchachGUI;
+
 public class SpielFeld {
 	ArrayList<Figur> figuren;
 	boolean werAmZug; //weiss = true
@@ -13,14 +15,14 @@ public class SpielFeld {
 	{
 		for(int i = 0; i < figuren.size() ;i++)
 		{
-			if(figuren.get(i).pos == pos)
+			if(figuren.get(i).pos.equals(pos))
 			{
 				return figuren.get(i);
 			}
 		}
-		return null;
+		return new Figur(new Position(100,100),true);
 	}
-	public void ausgabe()
+	/*public void ausgabe()
 	{
 		Position posa = new Position(0,0);
 		boolean gefunden = false;
@@ -49,6 +51,7 @@ public class SpielFeld {
 		}
 		
 	}
+	*/
 	public boolean schach()
 	{
 		boolean schach = false;
@@ -132,5 +135,9 @@ public class SpielFeld {
 		pos.setX(spielzug.charAt(0)-'0');
 		pos.setY(spielzug.charAt(1)-'0');
 		return pos;
+	}
+	public void starten()
+	{
+		SchachGUI gui = new SchachGUI(this);
 	}
 }

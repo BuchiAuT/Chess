@@ -53,13 +53,14 @@ public class SpielfeldIO
 			}
 			zeile++;
 		}
+		s.close();
 		return feld;
 	}
 
 	public static void main(String[] args) throws FileNotFoundException
 	{
 		SpielFeld sf = SpielfeldIO.einlesen("TestData/Schachfeld.txt");
-		sf.spielzug("12 67");
+		sf.starten();
 	}
 
 }
