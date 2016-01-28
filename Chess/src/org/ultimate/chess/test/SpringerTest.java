@@ -12,12 +12,6 @@ import org.junit.Test;
 
 public class SpringerTest 
 {
-	Position pos1=new Position(4,3);
-	Springer springer1=new Springer(pos1,true);
-	
-	Position pos2=new Position(4,3);
-	Springer springer2=new Springer(pos2,true);
-	
 	@Test
 	public void testSpielzugMoeglich1() 
 	{		
@@ -25,7 +19,7 @@ public class SpringerTest
 		{
 			// weißen Springer auf (3,3) setzen
 			Position position=new Position(3,3);
-			SpielFeld sf=SpielfeldIO.einlesen("Springertest1-Textdatei.txt");
+			SpielFeld sf=SpielfeldIO.einlesen("TestData/Springertest1-Textdatei.txt");
 			König könig=(König)sf.holeFigur(position);
 			
 			// ein Springer der Farbe weiß wird getestet (von unten nach oben)
@@ -60,7 +54,7 @@ public class SpringerTest
 		{
 			// weißen Springer auf (3,3), schwarze Dame auf (2,1), schwarze Läufer auf(5,2) & (1,2), schwarzen Bauer auf (4,5) setzen 
 			Position position=new Position(3,3);
-			SpielFeld sf=SpielfeldIO.einlesen("Springertest2-Textdatei.txt");
+			SpielFeld sf=SpielfeldIO.einlesen("TestData/Springertest2-Textdatei.txt");
 			König könig=(König)sf.holeFigur(position);
 			
 			// ein Springer der Farbe weiß wird getestet (von unten nach oben)
@@ -87,11 +81,4 @@ public class SpringerTest
 			Assert.fail();
 		}
 	}
-
-	@Test
-	public void testSpringer() 
-	{
-		assertEquals(pos1, pos2);
-	}
-
 }

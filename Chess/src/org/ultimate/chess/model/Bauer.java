@@ -26,7 +26,7 @@ public class Bauer extends Figur
 		// Diagonal schlagen Spieler weiﬂ (rechts nach oben, links nach oben)
 		
 		
-		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))) || (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1))) && (this.getFarbe()==true))	
+		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))) && (this.getFarbe()==true) || (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1))) && (this.getFarbe()==true))	
 		{	
 				if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{
@@ -39,7 +39,7 @@ public class Bauer extends Figur
 		
 		// Diagonal schlagen Spieler schwarz (links nach unten, rechts nach unten)
 		
-		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1))) || (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1))) && (this.getFarbe()==false))	
+		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1))) && (this.getFarbe()==true)|| (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1))) && (this.getFarbe()==false))	
 		{	
 				if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{

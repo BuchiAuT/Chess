@@ -138,6 +138,5 @@ public class Springer extends Figur
 		
 		return statement;
 
-	}
-		
+	}		
 }

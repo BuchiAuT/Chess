@@ -63,14 +63,6 @@ public class BauerTest
 	}
 
 	@Test
-	public void testBauer() 
-	{
-		Bauer bauer3=bauer1;
-	
-		assertEquals(bauer1, bauer3);
-	}
-
-	@Test
 	public void testGetObFigurGeholtWerdenKann() 
 	{
 		if(bauer1.getObFigurGeholtWerdenKann() == (bauer2.getObFigurGeholtWerdenKann()))

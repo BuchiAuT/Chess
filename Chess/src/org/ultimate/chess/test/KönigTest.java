@@ -17,12 +17,6 @@ import org.junit.Test;
 
 public class KönigTest 
 {
-	Position pos1=new Position(6,2);
-	König könig1=new König(pos1,true);
-	
-	Position pos2=new Position(6,2);
-	König könig2=new König(pos2,true);
-	
 	@Test
 	public void testSpielzugMoeglich1() 
 	{
@@ -30,7 +24,7 @@ public class KönigTest
 		{
 			// Weißen König auf 4,0 setzen, weiße Dame(3,0) weißen Läufer (5,0), 3 weiße Bauern (3,1),(4,1),(5,1) setzen
 			Position position=new Position(4,0);
-			SpielFeld sf=SpielfeldIO.einlesen("Königtest1-Textdatei.txt");
+			SpielFeld sf=SpielfeldIO.einlesen("TestData/Königtest1-Textdatei.txt");
 			König könig=(König)sf.holeFigur(position);
 			
 			// ein König der Farbe weiß wird getestet (von unten nach oben)
@@ -69,7 +63,7 @@ public class KönigTest
 		{
 			// König auf 4,2 setzen, schwarzen Läufer auf (3,2), Dame auf (5,3), Turm auf (4,3
 			Position position=new Position(4,2);
-			SpielFeld sf=SpielfeldIO.einlesen("Königtest2-Textdatei.txt");
+			SpielFeld sf=SpielfeldIO.einlesen("TestData/Königtest2-Textdatei.txt");
 			König könig=(König)sf.holeFigur(position);
 			
 			// ein König der Farbe weiß wird getestet (von unten nach oben)
@@ -110,7 +104,7 @@ public class KönigTest
 			//Rochade lang & kurz
 			// König auf 4,0 setzen, schwarze Türme auf (0,0) & (7,0)
 			Position position=new Position(4,0);
-			SpielFeld sf=SpielfeldIO.einlesen("Königtest3-Textdatei.txt");
+			SpielFeld sf=SpielfeldIO.einlesen("TestData/Königtest3-Textdatei.txt");
 			König könig=(König)sf.holeFigur(position);
 			
 			// ein König der Farbe weiß wird getestet (von unten nach oben)
@@ -128,14 +122,6 @@ public class KönigTest
 			exception.printStackTrace();
 			Assert.fail();
 		}
-	}
-	
-	@Test
-	public void testKönig() 
-	{
-		König könig3=könig1;
-		
-		assertEquals(könig1, könig3);
 	}
 
 }
