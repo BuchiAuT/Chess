@@ -104,6 +104,7 @@ public class SpielFeld {
 	}
 	public void spielzug(String spielzug)
 	{
+		//ausgabe();
 		String[] res = spielzug.split(" ");
 		Position posQuelle = schach2koordinate(res[0]);
 		Position posZiel = schach2koordinate(res[1]);
@@ -128,8 +129,8 @@ public class SpielFeld {
 	{
 		Position pos = new Position(0,0);
 		spielzug = spielzug.toLowerCase();
-		pos.setX(Integer.valueOf(spielzug, spielzug.indexOf(0)));
-		pos.setY(Integer.valueOf(spielzug, spielzug.indexOf(1)));
+		pos.setX(spielzug.charAt(0)-'0');
+		pos.setY(spielzug.charAt(1)-'0');
 		return pos;
 	}
 }

@@ -23,15 +23,15 @@ public class SpielfeldIO
 		int posy = f.charAt(3)-48;
 		pos.setX(posx);
 		pos.setY(posy);
-		Figur f1 = new Bauer(pos,farbeW);
+		Figur f1 = null;
 		switch(typ)
 		{
-			case 'T' : f1 =  new Turm(pos,farbeW);
-			case 'S' : f1 = new Springer(pos,farbeW);
-			case 'L' : f1 = new Laeufer(pos,farbeW);
-			case 'K' : f1 = new König(pos,farbeW);
-			case 'D' : f1 = new Dame(pos,farbeW);
-			case 'B' : f1 = new Bauer(pos,farbeW);
+			case 'T' : f1 = new Turm(pos,farbeW); break;
+			case 'S' : f1 = new Springer(pos,farbeW); break;
+			case 'L' : f1 = new Laeufer(pos,farbeW);break;
+			case 'K' : f1 = new König(pos,farbeW);break;
+			case 'D' : f1 = new Dame(pos,farbeW);break;
+			case 'B' : f1 = new Bauer(pos,farbeW);break;
 		}
 		return f1;
 	}
@@ -59,6 +59,7 @@ public class SpielfeldIO
 	public static void main(String[] args) throws FileNotFoundException
 	{
 		SpielFeld sf = SpielfeldIO.einlesen("TestData/Schachfeld.txt");
+		sf.spielzug("12 67");
 	}
 
 }
