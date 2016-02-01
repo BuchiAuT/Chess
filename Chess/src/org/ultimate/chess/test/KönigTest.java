@@ -61,7 +61,7 @@ public class KönigTest
 	{
 		try
 		{
-			// König auf 4,2 setzen, schwarzen Läufer auf (3,2), Dame auf (5,3), Turm auf (4,3
+			// König auf 4,2 setzen, schwarzen Läufer auf (3,2), Dame auf (5,3), Turm auf (4,3)
 			Position position=new Position(4,2);
 			SpielFeld sf=SpielfeldIO.einlesen("TestData/Königtest2-Textdatei.txt");
 			König könig=(König)sf.holeFigur(position);

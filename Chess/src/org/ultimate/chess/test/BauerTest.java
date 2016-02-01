@@ -49,11 +49,11 @@ public class BauerTest
 			
 			// 1x Diagonal nach unten links schlagen
 			beobachtet=bauer.spielzugMoeglich(sf, new Position(2,5));
-			Assert.assertTrue(beobachtet); // 
+			Assert.assertTrue(beobachtet); 
 			
 			// 1x Diagonal nach unten rechts schlagen
 			beobachtet=bauer.spielzugMoeglich(sf, new Position(4,5));
-			Assert.assertTrue(beobachtet); // <-- falls keine eigene Figur auf diesem Feld steht, auf asserTrue ändern!
+			Assert.assertTrue(beobachtet); 
 			
 		}catch (FileNotFoundException exception)
 		{

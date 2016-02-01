@@ -28,7 +28,7 @@ public class Bauer extends Figur
 		
 		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))) && (this.getFarbe()==true) || (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1))) && (this.getFarbe()==true))	
 		{	
-				if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+				if((spielfeld.holeFigur(position).getFarbe())!=this.getFarbe()) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
 					{						
@@ -39,9 +39,9 @@ public class Bauer extends Figur
 		
 		// Diagonal schlagen Spieler schwarz (links nach unten, rechts nach unten)
 		
-		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1))) && (this.getFarbe()==true)|| (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1))) && (this.getFarbe()==false))	
+		if(((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1))) && (this.getFarbe()==false))|| ((((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1))) && (this.getFarbe()==false)))	
 		{	
-				if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+				if((spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 				{
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
 					{		
@@ -56,7 +56,7 @@ public class Bauer extends Figur
 		
 		if(((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+1)) && (this.getFarbe()==true)) 
 		{
-				if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
+				if(((spielfeld.holeFigur(position).getPos().getX())==100) && ((spielfeld.holeFigur(position).getPos().getY())==100)) // Abfragen dass keine Figur auf dem Feld steht 
 				{					
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
 					{
@@ -74,7 +74,7 @@ public class Bauer extends Figur
 		// 1 Feld nach vorne schwarz (1 nach unten)
 		if(((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-1)) && (this.getFarbe()==false)) 
 		{
-				if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
+				if(((spielfeld.holeFigur(position).getPos().getX())==100) && ((spielfeld.holeFigur(position).getPos().getY())==100)) // Abfragen dass keine Figur auf dem Feld steht 
 				{					
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
 					{
@@ -95,7 +95,7 @@ public class Bauer extends Figur
 		
 		if(((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY())+2) && (this.getFarbe()==true))
 		{
-			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen ob generell keine Figur auf dem Feld steht 
+			if(((spielfeld.holeFigur(position).getPos().getX())==100) && ((spielfeld.holeFigur(position).getPos().getY())==100)) // Abfragen ob generell keine Figur auf dem Feld steht 
 				{
 					if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
 					{
@@ -112,7 +112,7 @@ public class Bauer extends Figur
 	
 		if(((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY())-2) && (this.getFarbe()==false))
 		{
-			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen ob generell keine Figur auf dem Feld steht 
+			if(((spielfeld.holeFigur(position).getPos().getX())==100) && ((spielfeld.holeFigur(position).getPos().getY())==100)) // Abfragen ob generell keine Figur auf dem Feld steht 
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
 				{
