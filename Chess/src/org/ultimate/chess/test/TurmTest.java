@@ -38,12 +38,6 @@ public class TurmTest
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testSpielZug() 
-	{
-		fail("Not yet implemented");
-	}
-
 	Position pos1 = new Position(7,0);
 	Turm turm1 = new Turm(pos1, true);
 	

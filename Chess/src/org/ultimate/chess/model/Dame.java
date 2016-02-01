@@ -21,13 +21,23 @@ public class Dame extends Figur
 		boolean statement=false;
 		byte spielfeldendeX=7;
 		byte spielfeldendeY=7;
-		// des steht da damit i's commiten kann...
 		
 		// figuren schlagen	(alle Kombinationen)
 		
-		
 		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))) || (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1)))	|| (((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1))) || (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1)))
-				|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+1)))	|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-1)))	|| (((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY())))	|| (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()))))	
+			|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+1)))	|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-1)))	|| (((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY())))	|| (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()+2))) || (((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()+2)))	|| (((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()-2))) || (((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()-2)))
+			|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+2)))	|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-2)))	|| (((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY())))	|| (((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()+3))) || (((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()+3)))	|| (((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()-3))) || (((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()-3)))
+			|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+3)))	|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-3)))	|| (((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY())))	|| (((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()+4))) || (((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()+4)))	|| (((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()-4))) || (((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()-4)))
+			|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+4)))	|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-4)))	|| (((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY())))	|| (((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()+5))) || (((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()+5)))	|| (((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()-5))) || (((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()-5)))
+			|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+5)))	|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-5)))	|| (((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY())))	|| (((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()+6))) || (((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()+6)))	|| (((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()-6))) || (((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()-6)))
+			|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+6)))	|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-6)))	|| (((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY())))	|| (((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()+7))) || (((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()+7)))	|| (((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()-7))) || (((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()-7)))
+			|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+7)))	|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-7)))	|| (((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY())))	|| (((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()))))
 		{	
 			if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
@@ -42,7 +52,13 @@ public class Dame extends Figur
 		
 		// nach rechts und nach oben
 		
-		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))))
+		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1)))
+		|| (((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()+2)))
+		|| (((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()+3)))
+		|| (((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()+4)))
+		|| (((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()+5)))
+		|| (((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()+6)))
+		|| (((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()+7))))
 		{	
 			if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
@@ -57,7 +73,13 @@ public class Dame extends Figur
 		
 		// nach rechts und nach unten
 		
-		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1))))
+		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1)))
+		|| (((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()-2)))
+		|| (((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()-3)))
+		|| (((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()-4)))
+		|| (((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()-5)))
+		|| (((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()-6)))
+		|| (((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()-7))))
 		{	
 			if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
@@ -72,7 +94,13 @@ public class Dame extends Figur
 		
 		// nach links und nach oben
 				
-		if((((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1))))
+		if((((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1)))
+		|| (((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()+2)))
+		|| (((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()+3)))
+		|| (((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()+4)))
+		|| (((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()+5)))
+		|| (((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()+6)))
+		|| (((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()+7))))
 		{	
 			if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
@@ -87,7 +115,13 @@ public class Dame extends Figur
 		
 		// nach links und nach unten
 				
-		if((((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1))))
+		if((((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1)))
+		|| (((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()-2)))
+		|| (((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()-3)))
+		|| (((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()-4)))
+		|| (((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()-5)))
+		|| (((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()-6)))
+		|| (((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()-7))))
 		{	
 			if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
@@ -102,7 +136,13 @@ public class Dame extends Figur
 		
 		// nach rechts
 				
-		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()))))
+		if(((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()))
+		|| ((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()))
+		|| ((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()))
+		|| ((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()))
+		|| ((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()))
+		|| ((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()))
+		|| ((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY())))
 		{	
 			if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
@@ -117,7 +157,13 @@ public class Dame extends Figur
 		
 		// nach links
 				
-		if((((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()))))
+		if((((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY())))
+		|| (((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()))))
 		{	
 			if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
@@ -132,7 +178,13 @@ public class Dame extends Figur
 		
 		// nach oben
 				
-		if((((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+1))))
+		if((((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+1)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+2)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+3)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+4)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+5)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+6)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()+7))))
 		{	
 			if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
@@ -147,7 +199,13 @@ public class Dame extends Figur
 		
 		// nach unten
 				
-		if((((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-1))))
+		if((((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-1)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-2)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-3)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-4)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-5)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-6)))
+		|| (((position.getX())==(this.getPos().getX())) && ((position.getY())==(this.getPos().getY()-7))))
 		{	
 			if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{

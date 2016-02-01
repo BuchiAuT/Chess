@@ -38,12 +38,6 @@ public class LaeuferTest
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testSpielZug() 
-	{
-		fail("Not yet implemented");
-	}
-
 	Position pos1 = new Position(5,0);
 	Laeufer laeufer1 = new Laeufer(pos1, true);
 	

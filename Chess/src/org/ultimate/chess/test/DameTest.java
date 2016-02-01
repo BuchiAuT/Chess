@@ -39,12 +39,6 @@ public class DameTest
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testSpielZug() 
-	{
-		fail("Not yet implemented");
-	}
-
 	Position pos1 = new Position(4,0);
 	Dame dame1 = new Dame(pos1, true);
 	

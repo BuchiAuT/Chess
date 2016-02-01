@@ -24,10 +24,15 @@ public class Laeufer extends Figur
 		
 		// Diagonal schlagen	(alle Kombinationen)
 		
-		
-		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))) || (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1))) || (((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1)))|| (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1))))
+		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))) || (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1))) || (((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1)))|| (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1)))
+		|| (((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()+2))) || (((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()+2))) || (((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()-2)))|| (((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()-2)))
+		|| (((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()+3))) || (((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()+3))) || (((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()-3)))|| (((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()-3)))
+		|| (((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()+4))) || (((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()+4))) || (((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()-4)))|| (((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()-4)))
+		|| (((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()+5))) || (((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()+5))) || (((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()-5)))|| (((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()-5)))
+		|| (((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()+6))) || (((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()+6))) || (((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()-6)))|| (((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()-6)))
+		|| (((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()+7))) || (((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()+7))) || (((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()-7)))|| (((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()-7))))
 		{	
-			if((((spielfeld.holeFigur(position).getPos().getX()==position.getX()) && (spielfeld.holeFigur(position).getPos().getY())==position.getY())) && (spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
+			if(spielfeld.holeFigur(position).getFarbe()!=this.getFarbe()) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
 				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht au�erhalb des Feldes geht
 				{
@@ -40,7 +45,13 @@ public class Laeufer extends Figur
 		
 		// nach rechts und nach oben
 		
-		if(((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))) 
+		if(((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))
+		|| ((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()+2))
+		|| ((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()+3))
+		|| ((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()+4))
+		|| ((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()+5))
+		|| ((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()+6))
+		|| ((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()+7)))
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
@@ -55,7 +66,13 @@ public class Laeufer extends Figur
 		
 		// nach rechts und nach unten
 		
-		if(((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1))) 
+		if(((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1))
+		|| ((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()-2))
+		|| ((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()-3))
+		|| ((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()-4))
+		|| ((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()-5))
+		|| ((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()-6))
+		|| ((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()-7)))
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
@@ -70,7 +87,13 @@ public class Laeufer extends Figur
 		
 		// nach links und nach oben
 				
-		if(((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1))) 
+		if(((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1))
+		|| ((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()+2))
+		|| ((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()+3))
+		|| ((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()+4))
+		|| ((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()+5))
+		|| ((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()+6))
+		|| ((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()+7)))
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
@@ -85,7 +108,13 @@ public class Laeufer extends Figur
 		
 		// nach links und nach unten
 				
-		if(((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1))) 
+		if(((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1))
+		|| ((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()-2))
+		|| ((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()-3))
+		|| ((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()-4))
+		|| ((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()-5))
+		|| ((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()-6))
+		|| ((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()-7)))
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
