@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import org.ultimate.chess.GUI.SchachGUI;
 
 public class SpielFeld {
-	ArrayList<Figur> figuren;
+	public ArrayList<Figur> figuren;
 	boolean werAmZug; //weiss = true
 	public SpielFeld()
 	{
