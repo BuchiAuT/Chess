@@ -109,9 +109,9 @@ public class DameTest
 			beobachtet = dame2.spielzugMoeglich(sf2, new Position(7,0));
 			Assert.assertFalse(beobachtet2);
 						
-			// Bauer des Gegners schlagen --> sollte möglich sein
+			// Bauer des Gegners schlagen --> sollte nicht möglich sein
 			beobachtet = dame2.spielzugMoeglich(sf2, new Position(6,1));
-			Assert.assertTrue(beobachtet2);
+			Assert.assertFalse(beobachtet2);
 						
 			// Bauer schlagen (4,3) --> sollte möglich sein
 			beobachtet = dame2.spielzugMoeglich(sf2, new Position(4,3));
