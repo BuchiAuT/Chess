@@ -131,7 +131,7 @@ public class SchachGUI
 	{
 		Image image = null;
 		try {
-			image = ImageIO.read(new File("Images/"+name+".JPG"));
+			image = ImageIO.read(new File("Images/"+name+".jpg"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
