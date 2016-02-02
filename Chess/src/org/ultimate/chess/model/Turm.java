@@ -8,12 +8,12 @@ package org.ultimate.chess.model;
 
 public class Turm extends Figur
 {	
-	public String name;
+	public char name;
 	
 	public Turm(Position pos, boolean farbeweiﬂ)
 	{
 		super(pos,farbeweiﬂ);
-		name = "T";
+		name = 'T';
 	}
 	
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)

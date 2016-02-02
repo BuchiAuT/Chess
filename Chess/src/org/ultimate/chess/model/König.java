@@ -10,12 +10,12 @@ public class König extends Figur
 	private boolean kurzeRochadeMöglich;
 	private boolean langeRochadeMöglich;
 	
-	public String name;
+	public char name;
 	
 	public König(Position pos, boolean farbeweiß)
 	{
 		super(pos,farbeweiß);
-		name="K";
+		name='K';
 	}
 	
 	

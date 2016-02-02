@@ -7,14 +7,14 @@ package org.ultimate.chess.model;
 
 public class Springer extends Figur
 {
-	public String name;
+	public char name;
 	
 	// alle Figuren wie beim Bauern... also holeFigur(position) anstatt holeFigur(position) und 
 	
 	public Springer(Position pos, boolean farbeweiﬂ)
 	{
 		super(pos,farbeweiﬂ);
-		name="S";
+		name='S';
 	}
 		
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)

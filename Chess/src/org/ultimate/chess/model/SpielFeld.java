@@ -61,7 +61,7 @@ public class SpielFeld {
 			//get König weiß
 			for(int u = 0; u<figuren.size();u++)
 			{
-				if(figuren.get(u).getName() == "K" && figuren.get(u).getFarbe() == true)
+				if(figuren.get(u).getName() == 'K' && figuren.get(u).getFarbe() == true)
 				{
 				nach = figuren.get(u).getPos();	
 				}
@@ -73,7 +73,7 @@ public class SpielFeld {
 			//get König schwarz
 			for(int u = 0; u<figuren.size();u++)
 			{
-				if(figuren.get(u).getName() == "K" && figuren.get(u).getFarbe() == false)
+				if(figuren.get(u).getName() == 'K' && figuren.get(u).getFarbe() == false)
 				{
 				nach = figuren.get(u).getPos();	
 				}
@@ -90,11 +90,11 @@ public class SpielFeld {
 		boolean schachmatt = false;
 		for(int i = 0; i<figuren.size();i++)
 		{
-			if(figuren.get(i).getName() == "K" && figuren.get(i).getFarbe() == false)
+			if(figuren.get(i).getName() == 'K' && figuren.get(i).getFarbe() == false)
 			{
 				schachmatt = true;
 			}
-			if(figuren.get(i).getName() == "K" && figuren.get(i).getFarbe() == true)
+			if(figuren.get(i).getName() == 'K' && figuren.get(i).getFarbe() == true)
 			{
 				schachmatt = true;
 			}

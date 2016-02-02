@@ -3,7 +3,7 @@ package org.ultimate.chess.model;
 public class Figur 
 {
 	Position pos;
-	private String name;
+	private char name;
 	boolean farbeWeiss; //true = weiﬂ
 	
 	public Figur(Position pos,boolean farbeWeiss)
@@ -18,7 +18,7 @@ public class Figur
 		return farbeWeiss;
 	}
 	
-	public String getName()
+	public char getName()
 	{
 		return name;
 	}
@@ -27,19 +27,6 @@ public class Figur
 	{
 		return pos;
 	}
-	
-@Override
-public String toString() 
-{
-	if(farbeWeiss)
-	{
-	return name.charAt(1)+",W";
-	}
-	else
-	{
-	return name.charAt(1)+",S";
-	}
-}
 
 	public boolean spielZug(SpielFeld sp,Position nach)
 	{

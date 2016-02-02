@@ -41,7 +41,7 @@ public class SchachGUI
 			{
 				Image image = null;
 				try {
-					image = ImageIO.read(new File("Images/Bauer.JPG"));
+					image = ImageIO.read(new File("Images/grau.JPG"));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -98,6 +98,7 @@ public class SchachGUI
 		}
 		main_frame.repaint();
 		main_frame.revalidate();
+		main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		main_frame.setVisible(true);
 	}
 	public void zeichnen()
@@ -113,7 +114,7 @@ public class SchachGUI
 				{
 					if(sf.figuren.get(k).getPos().equals(pos))
 					{
-						switch(sf.figuren.get(k).getName().charAt(0))
+						switch(sf.figuren.get(k).getName())
 						{
 							case 'T' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Turm")); break;
 							case 'S' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Springer")); break;
@@ -122,6 +123,8 @@ public class SchachGUI
 							case 'D' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Dame")); break;
 							case 'B' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Bauer"));
 						}
+						main_frame.repaint();
+						main_frame.revalidate();
 					}
 				}
 			}

@@ -30,8 +30,8 @@ public class SpielfeldIO
 			case 'S' : f1 = new Springer(pos,farbeW); break;
 			case 'L' : f1 = new Laeufer(pos,farbeW);break;
 			case 'K' : f1 = new König(pos,farbeW);break;
-			case 'D' : f1 = new Dame(pos,farbeW);break;
 			case 'B' : f1 = new Bauer(pos,farbeW);break;
+			case 'D' : f1 = new Dame(pos,farbeW);break;
 		}
 		return f1;
 	}
@@ -48,7 +48,10 @@ public class SpielfeldIO
 			for (int spalte = 0; spalte < figs.length;spalte++)
 			{
 				Figur f = leseFeld(figs[spalte]); 
+				if(f != null)
+				{
 				feld.figuren.add(f);
+				}
 				 //setze die aktuelle Figur auf das Spielfeld
 			}
 			zeile++;

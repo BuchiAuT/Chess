@@ -9,12 +9,12 @@ public class Bauer extends Figur
 {	
 	private boolean eineFigurKannZurueckgeholtWerden;
 	
-	public String name;
+	public char name;
 	
 	public Bauer(Position pos, boolean farbeweiﬂ)
 	{
 		super(pos,farbeweiﬂ);
-		name="B";
+		name='B';
 	}
 	
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)

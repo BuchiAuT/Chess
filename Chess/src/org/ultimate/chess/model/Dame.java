@@ -8,12 +8,12 @@ package org.ultimate.chess.model;
 
 public class Dame extends Figur
 {	
-	public String name;
+	public char name;
 
 	public Dame(Position pos, boolean farbeweiﬂ)
 	{
 		super(pos,farbeweiﬂ);
-		name = "D";
+		name = 'D';
 	}
 	
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)
