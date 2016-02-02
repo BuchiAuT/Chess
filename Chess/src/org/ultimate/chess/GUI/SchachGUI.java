@@ -2,9 +2,13 @@ package org.ultimate.chess.GUI;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 
@@ -35,7 +39,14 @@ public class SchachGUI
 		{
 			for(int u = 0; u<8;u++)
 			{
-				FigurenPanel fp = new FigurenPanel(i,u);
+				Image image = null;
+				try {
+					image = ImageIO.read(new File("Images/Bauer.JPG"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				FigurenPanel fp = new FigurenPanel(i,u,image);
 				fp.addMouseListener(new MouseListener(){
 
 					@Override
@@ -104,16 +115,27 @@ public class SchachGUI
 					{
 						switch(sf.figuren.get(k).getName().charAt(0))
 						{
-							case 'T' : main_frame.getComponentAt(pos.getX(), pos.getY()); break;
-							case 'S' : main_frame.getComponentAt(pos.getX(), pos.getY()); break;
-							case 'L' : main_frame.getComponentAt(pos.getX(), pos.getY()); break;
-							case 'K' : main_frame.getComponentAt(pos.getX(), pos.getY()); break;
-							case 'D' : main_frame.getComponentAt(pos.getX(), pos.getY()); break;
-							case 'B' : main_frame.getComponentAt(pos.getX(), pos.getY());
+							case 'T' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Turm")); break;
+							case 'S' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Springer")); break;
+							case 'L' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Läufer")); break;
+							case 'K' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("König")); break;
+							case 'D' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Dame")); break;
+							case 'B' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Bauer"));
 						}
 					}
 				}
 			}
 		}
+	}
+	public Image bildHolen(String name)
+	{
+		Image image = null;
+		try {
+			image = ImageIO.read(new File("Images/"+name+".JPG"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return image;
 	}
 }
