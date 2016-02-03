@@ -159,4 +159,25 @@ public class Laeufer extends Figur
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	public boolean diagonal(Position von,Position nach,SpielFeld sf)
+	{
+		boolean ergebniss = false;
+		Position pos = new Position(von.getX(),von.getY());
+		int diff = von.getX() - nach.getX();
+		for(int i = 1; i<diff; i++)
+		{
+			pos.setX(pos.getX()+i);
+			pos.setY(pos.getY()+i);
+			if(sf.holeFigur(pos).getPos().getX()==100)
+			{
+				ergebniss = true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	return ergebniss;
+	}
 }
