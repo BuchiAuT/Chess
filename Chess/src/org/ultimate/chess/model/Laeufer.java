@@ -133,7 +133,8 @@ public class Laeufer extends Figur
 	}
 
 	@Override
-	public boolean spielZug(SpielFeld sp, Position nach) {
+	public boolean spielZug(SpielFeld sp, Position nach) 
+	{
 		// TODO Auto-generated method stub
 		return false;
 	}
