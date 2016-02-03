@@ -31,6 +31,7 @@ public class SchachGUI
 	private Haupt_Frame main_frame;
 	public SchachGUI(SpielFeld sf)
 	{
+		boolean panelfarbe = true;
 		spielzug_gestartet = false;
 		this.sf = sf;
 		main_frame = new Haupt_Frame();
@@ -42,13 +43,17 @@ public class SchachGUI
 			for(int u = 0; u<8;u++)
 			{
 				Image image = null;
-				try {
-					image = ImageIO.read(new File("Images/grau.JPG"));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				FigurenPanel fp = new FigurenPanel(u,i,image);
+				if(panelfarbe)
+				{
+					panelfarbe = !panelfarbe;
+					fp.setBackground(Color.BLACK);
+				}
+				else
+				{
+					panelfarbe = !panelfarbe;
+					fp.setBackground(Color.WHITE);
+				}
 				fp.addMouseListener(new MouseListener(){
 
 					@Override
@@ -94,7 +99,7 @@ public class SchachGUI
 					}
 				
 				});
-				fp.setBackground(Color.RED);
+				fp.setBackground(Color.GRAY);
 				main_frame.addPanel(fp);
 			}
 		}
@@ -123,33 +128,36 @@ public class SchachGUI
 					{
 						gefunden = true;
 						char name = sf.figuren.get(k).getName();
+						String farbe;
+						if(sf.figuren.get(k).getFarbe())
+						{
+							farbe = "W";
+						}
+						else
+						{
+							farbe = "B";
+						}
 						switch(name)
 						{
-							case 'T' : main_frame.getFPanel(pos).setImage(bildHolen("Turm")); break;
-							case 'S' : main_frame.getFPanel(pos).setImage(bildHolen("Springer")); break;
-							case 'L' : main_frame.getFPanel(pos).setImage(bildHolen("Läufer")); break;
-							case 'K' : main_frame.getFPanel(pos).setImage(bildHolen("König")); break;
-							case 'D' : main_frame.getFPanel(pos).setImage(bildHolen("Dame")); break;
-							case 'B' : main_frame.getFPanel(pos).setImage(bildHolen("Bauer")); System.out.println("bauer");
+							case 'T' : main_frame.getFPanel(pos).setImage(bildHolen("Turm",farbe)); break;
+							case 'S' : main_frame.getFPanel(pos).setImage(bildHolen("Springer",farbe)); break;
+							case 'L' : main_frame.getFPanel(pos).setImage(bildHolen("Läufer",farbe)); break;
+							case 'K' : main_frame.getFPanel(pos).setImage(bildHolen("König",farbe)); break;
+							case 'D' : main_frame.getFPanel(pos).setImage(bildHolen("Dame",farbe)); break;
+							case 'B' : main_frame.getFPanel(pos).setImage(bildHolen("Bauer",farbe)); System.out.println("bauer");
 						}
 						main_frame.repaint();
 						main_frame.revalidate();
 					}
 				}
-				if(!gefunden)
-				{
-				main_frame.getFPanel(pos).setImage(bildHolen("grau"));
-				}
-					main_frame.repaint();
-					main_frame.revalidate();
-				}		
-			}
+			}		
+		}
 	}
-	public Image bildHolen(String name)
+	public Image bildHolen(String name,String farbe)
 	{
 		Image image = null;
 		try {
-			image = ImageIO.read(new File("Images/"+name+".jpg"));
+			image = ImageIO.read(new File("Images/"+name+farbe+".png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
