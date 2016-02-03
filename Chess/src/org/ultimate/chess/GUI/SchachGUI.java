@@ -12,6 +12,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 
 import org.ultimate.chess.model.Bauer;
 import org.ultimate.chess.model.Dame;
@@ -23,7 +28,7 @@ import org.ultimate.chess.model.Springer;
 import org.ultimate.chess.model.Turm;
 
 public class SchachGUI 
-{	
+{	boolean weristdran = true; //weiﬂ
 	Position nach;
 	Position von;
 	boolean spielzug_gestartet;
@@ -40,10 +45,12 @@ public class SchachGUI
 		main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		for(int i = 0;i<8;i++)
 		{
+			panelfarbe = !panelfarbe;
 			for(int u = 0; u<8;u++)
 			{
 				Image image = null;
 				FigurenPanel fp = new FigurenPanel(u,i,image);
+				fp.setOpaque(true);
 				if(panelfarbe)
 				{
 					panelfarbe = !panelfarbe;
@@ -57,12 +64,32 @@ public class SchachGUI
 				fp.addMouseListener(new MouseListener(){
 
 					@Override
-					public void mouseClicked(MouseEvent arg0) {
+					public void mouseClicked(MouseEvent arg0) 
+					{
+					FigurenPanel vonPanel = (FigurenPanel)arg0.getSource();
+					von =vonPanel.getPos();
+					Position posmˆglich = new Position(100,100);
+					for(int i = 0; i < 8;i++)
+					{
+						posmˆglich.setY(i);
+						for(int u = 0; u<8 ; u++)
+						{
+							posmˆglich.setX(u);
+							main_frame.getFPanel(posmˆglich).setBorder(null);
+							System.out.println(posmˆglich);
+							if(sf.holeFigur(von).spielzugMoeglich(sf, posmˆglich))
+							{
+								Border border = new CompoundBorder(new EtchedBorder(),
+								        new LineBorder(Color.RED));
+								main_frame.getFPanel(posmˆglich).setBorder(border);
+							}
+						}
+					}
+					if(sf.holeFigur(vonPanel.getPos()).getFarbe()==weristdran)
+					{
 					if(!spielzug_gestartet)
 					{
 						spielzug_gestartet = true;
-						FigurenPanel vonPanel = (FigurenPanel)arg0.getSource();
-						von =vonPanel.getPos();
 					}
 					else
 					{
@@ -71,7 +98,9 @@ public class SchachGUI
 						nach = nachPanel.getPos();
 						sf.holeFigur(von).spielZug(sf, nach);
 						zeichnen();
-					}					
+						weristdran = !weristdran;
+					}
+					}				
 					}
 
 					@Override
@@ -99,7 +128,7 @@ public class SchachGUI
 					}
 				
 				});
-				fp.setBackground(Color.GRAY);
+				//fp.setBackground(Color.GRAY);
 				main_frame.addPanel(fp);
 			}
 		}
@@ -144,7 +173,7 @@ public class SchachGUI
 							case 'L' : main_frame.getFPanel(pos).setImage(bildHolen("L‰ufer",farbe)); break;
 							case 'K' : main_frame.getFPanel(pos).setImage(bildHolen("Kˆnig",farbe)); break;
 							case 'D' : main_frame.getFPanel(pos).setImage(bildHolen("Dame",farbe)); break;
-							case 'B' : main_frame.getFPanel(pos).setImage(bildHolen("Bauer",farbe)); System.out.println("bauer");
+							case 'B' : main_frame.getFPanel(pos).setImage(bildHolen("Bauer",farbe));
 						}
 						main_frame.repaint();
 						main_frame.revalidate();
