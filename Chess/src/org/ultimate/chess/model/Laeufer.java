@@ -24,17 +24,21 @@ public class Laeufer extends Figur
 		
 		// Diagonal schlagen	(alle Kombinationen)
 		
-		if((((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))) || (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1))) || (((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1)))|| (((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1)))
-		|| (((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()+2))) || (((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()+2))) || (((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()-2)))|| (((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()-2)))
-		|| (((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()+3))) || (((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()+3))) || (((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()-3)))|| (((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()-3)))
-		|| (((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()+4))) || (((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()+4))) || (((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()-4)))|| (((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()-4)))
-		|| (((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()+5))) || (((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()+5))) || (((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()-5)))|| (((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()-5)))
-		|| (((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()+6))) || (((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()+6))) || (((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()-6)))|| (((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()-6)))
-		|| (((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()+7))) || (((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()+7))) || (((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()-7)))|| (((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()-7))))
+		boolean figurSchlagen = false;
+		
+		for(int i = 1; i <= 7; i++)
+		{
+			if((((position.getX())==(this.getPos().getX()+i)) && ((position.getY())==(this.getPos().getY()+i))) || (((position.getX())==(this.getPos().getX()-i)) && ((position.getY())==(this.getPos().getY()+i))) || (((position.getX())==(this.getPos().getX()+i)) && ((position.getY())==(this.getPos().getY()-i)))|| (((position.getX())==(this.getPos().getX()-i)) && ((position.getY())==(this.getPos().getY()-i))))
+			{
+				figurSchlagen = true;
+			}
+		}
+		
+		if(figurSchlagen)
 		{	
 			if(spielfeld.holeFigur(position).getFarbe()!=this.getFarbe()) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
-				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht
+				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht außerhalb des Feldes geht
 				{
 					statement=true;
 				}
@@ -45,17 +49,21 @@ public class Laeufer extends Figur
 		
 		// nach rechts und nach oben
 		
-		if(((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()+1))
-		|| ((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()+2))
-		|| ((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()+3))
-		|| ((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()+4))
-		|| ((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()+5))
-		|| ((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()+6))
-		|| ((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()+7)))
+		boolean rechtsOben = false;
+		
+		for(int i = 1; i <= 7; i++)
+		{
+			if(((position.getX())==(this.getPos().getX()+i)) && ((position.getY())==(this.getPos().getY()+i)))
+			{
+				rechtsOben = true;
+			}
+		}
+		
+		if(rechtsOben)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
-				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
+				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht außerhalb des Feldes geht			
 				{
 					statement=true;
 				}
@@ -66,17 +74,21 @@ public class Laeufer extends Figur
 		
 		// nach rechts und nach unten
 		
-		if(((position.getX())==(this.getPos().getX()+1)) && ((position.getY())==(this.getPos().getY()-1))
-		|| ((position.getX())==(this.getPos().getX()+2)) && ((position.getY())==(this.getPos().getY()-2))
-		|| ((position.getX())==(this.getPos().getX()+3)) && ((position.getY())==(this.getPos().getY()-3))
-		|| ((position.getX())==(this.getPos().getX()+4)) && ((position.getY())==(this.getPos().getY()-4))
-		|| ((position.getX())==(this.getPos().getX()+5)) && ((position.getY())==(this.getPos().getY()-5))
-		|| ((position.getX())==(this.getPos().getX()+6)) && ((position.getY())==(this.getPos().getY()-6))
-		|| ((position.getX())==(this.getPos().getX()+7)) && ((position.getY())==(this.getPos().getY()-7)))
+		boolean rechtsUnten = false;
+		
+		for(int i = 1; i <= 7; i++)
+		{
+			if(((position.getX())==(this.getPos().getX()+i)) && ((position.getY())==(this.getPos().getY()-i)))
+			{
+				rechtsUnten = true;
+			}
+		}
+		
+		if(rechtsUnten)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
-				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
+				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht außerhalb des Feldes geht					
 				{
 					statement=true;
 				}
@@ -86,18 +98,22 @@ public class Laeufer extends Figur
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 		// nach links und nach oben
-				
-		if(((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()+1))
-		|| ((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()+2))
-		|| ((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()+3))
-		|| ((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()+4))
-		|| ((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()+5))
-		|| ((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()+6))
-		|| ((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()+7)))
+		
+		boolean linksOben = false; 
+		
+		for(int i = 1; i <= 7; i++)
+		{
+			if(((position.getX())==(this.getPos().getX()-i)) && ((position.getY())==(this.getPos().getY()+i)))
+			{
+				linksOben = true;
+			}
+		}
+		
+		if(linksOben)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
-				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
+				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht außerhalb des Feldes geht					
 				{
 					statement=true;
 				}
@@ -107,18 +123,22 @@ public class Laeufer extends Figur
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 		// nach links und nach unten
-				
-		if(((position.getX())==(this.getPos().getX()-1)) && ((position.getY())==(this.getPos().getY()-1))
-		|| ((position.getX())==(this.getPos().getX()-2)) && ((position.getY())==(this.getPos().getY()-2))
-		|| ((position.getX())==(this.getPos().getX()-3)) && ((position.getY())==(this.getPos().getY()-3))
-		|| ((position.getX())==(this.getPos().getX()-4)) && ((position.getY())==(this.getPos().getY()-4))
-		|| ((position.getX())==(this.getPos().getX()-5)) && ((position.getY())==(this.getPos().getY()-5))
-		|| ((position.getX())==(this.getPos().getX()-6)) && ((position.getY())==(this.getPos().getY()-6))
-		|| ((position.getX())==(this.getPos().getX()-7)) && ((position.getY())==(this.getPos().getY()-7)))
+			
+		boolean linksUnten = false; 
+		
+		for(int i = 1; i <= 7; i++)
+		{
+			if(((position.getX())==(this.getPos().getX()-i)) && ((position.getY())==(this.getPos().getY()-i)))
+			{
+				linksUnten = true;
+			}
+		}
+		
+		if(linksUnten)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
-				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht auï¿½erhalb des Feldes geht, da Bauern nur Diagonal schlagen koennen						
+				if((position.getX()<=spielfeldendeX)&&(position.getX()>=0)&&(position.getY()<=spielfeldendeY)&&(position.getY()>=0)) // Abfragen ob Bewegung nicht außerhalb des Feldes geht						
 				{
 					statement=true;
 				}
@@ -127,6 +147,7 @@ public class Laeufer extends Figur
 						
 		return statement;
 	}
+	
 	public char getName()
 	{
 		return name;
