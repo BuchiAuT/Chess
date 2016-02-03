@@ -35,7 +35,7 @@ public class Dame extends Figur
 			}
 		}
 		
-		if(figurSchlagen)
+		if(figurSchlagen && ergebnis)
 		{
 			if(spielfeld.holeFigur(position).getFarbe()!=this.getFarbe())	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
