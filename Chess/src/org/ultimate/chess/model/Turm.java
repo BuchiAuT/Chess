@@ -59,7 +59,9 @@ public class Turm extends Figur
 			}
 		}
 		
-		if(oben)
+		nachOben(this.getPos(), position, spielfeld);
+		
+		if(oben && ergebnis)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
@@ -84,7 +86,9 @@ public class Turm extends Figur
 			}
 		}
 		
-		if(unten)
+		nachUnten(this.getPos(), position, spielfeld);
+		
+		if(unten && ergebnis)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
@@ -109,7 +113,9 @@ public class Turm extends Figur
 			}
 		}
 		
-		if(rechts)
+		nachRechts(this.getPos(), position, spielfeld);
+		
+		if(rechts && ergebnis)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
@@ -134,7 +140,9 @@ public class Turm extends Figur
 			}
 		}
 		
-		if(links)
+		nachLinks(this.getPos(), position, spielfeld);
+		
+		if(links && ergebnis)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
@@ -157,5 +165,87 @@ public class Turm extends Figur
 	public boolean spielZug(SpielFeld sp, Position nach) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	boolean ergebnis = false;
+	
+	public boolean nachOben(Position von, Position nach, SpielFeld sf)
+	{
+		Position pos = new Position(von.getX(), von.getY());
+		int diff = von.getX() - nach.getX();
+		for(int i = 1; i < diff; i++)
+		{
+			pos.setX(pos.getX());
+			pos.setY(pos.getY() + i);
+			if(sf.holeFigur(pos).getPos().getX() == 100)
+			{
+				ergebnis = true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		return ergebnis;
+	}
+	
+	public boolean nachUnten(Position von, Position nach, SpielFeld sf)
+	{
+		Position pos = new Position(von.getX(), von.getY());
+		int diff = von.getX() - nach.getX();
+		for(int i = 1; i < diff; i++)
+		{
+			pos.setX(pos.getX());
+			pos.setY(pos.getY() - i);
+			if(sf.holeFigur(pos).getPos().getX() == 100)
+			{
+				ergebnis = true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		return ergebnis;
+	}
+	
+	public boolean nachRechts(Position von, Position nach, SpielFeld sf)
+	{
+		Position pos = new Position(von.getX(), von.getY());
+		int diff = von.getX() - nach.getX();
+		for(int i = 1; i < diff; i++)
+		{
+			pos.setX(pos.getX() + i);
+			pos.setY(pos.getY());
+			if(sf.holeFigur(pos).getPos().getX() == 100)
+			{
+				ergebnis = true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		return ergebnis;
+	}
+	
+	public boolean nachLinks(Position von, Position nach, SpielFeld sf)
+	{
+		Position pos = new Position(von.getX(), von.getY());
+		int diff = von.getX() - nach.getX();
+		for(int i = 1; i < diff; i++)
+		{
+			pos.setX(pos.getX() - i);
+			pos.setY(pos.getY());
+			if(sf.holeFigur(pos).getPos().getX() == 100)
+			{
+				ergebnis = true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		return ergebnis;
 	}
 }

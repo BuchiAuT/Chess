@@ -34,7 +34,7 @@ public class Laeufer extends Figur
 			}
 		}
 		
-		if(figurSchlagen)
+		if(figurSchlagen && ergebnis)
 		{	
 			if(spielfeld.holeFigur(position).getFarbe()!=this.getFarbe()) 	// Abfragen ob eine gegnerische Figur auf dem Feld steht (andere Farbe)
 			{
@@ -59,7 +59,7 @@ public class Laeufer extends Figur
 			}
 		}
 		
-		rechts_Oben(position, position, spielfeld);
+		rechts_Oben(this.getPos(), position, spielfeld);
 		
 		if(rechtsOben && ergebnis)
 		{
@@ -86,7 +86,9 @@ public class Laeufer extends Figur
 			}
 		}
 		
-		if(rechtsUnten)
+		rechts_Unten(this.getPos(), position, spielfeld);
+		
+		if(rechtsUnten && ergebnis)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
@@ -111,7 +113,9 @@ public class Laeufer extends Figur
 			}
 		}
 		
-		if(linksOben)
+		links_Oben(this.getPos(), position, spielfeld);
+		
+		if(linksOben && ergebnis)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
@@ -136,7 +140,9 @@ public class Laeufer extends Figur
 			}
 		}
 		
-		if(linksUnten)
+		links_Unten(this.getPos(), position, spielfeld);
+		
+		if(linksUnten && ergebnis)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
