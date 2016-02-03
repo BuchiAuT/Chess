@@ -138,5 +138,9 @@ public class Springer extends Figur
 		
 		return statement;
 
-	}		
+	}	
+	public char getName()
+	{
+		return name;
+	}
 }

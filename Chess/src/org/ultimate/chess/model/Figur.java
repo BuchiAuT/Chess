@@ -3,8 +3,8 @@ package org.ultimate.chess.model;
 public class Figur 
 {
 	Position pos;
-	private char name;
 	boolean farbeWeiss; //true = weiﬂ
+	private char name;
 	
 	public Figur(Position pos,boolean farbeWeiss)
 	{	
@@ -16,11 +16,6 @@ public class Figur
 	public boolean getFarbe()
 	{
 		return farbeWeiss;
-	}
-	
-	public char getName()
-	{
-		return name;
 	}
 	
 	public Position getPos()
@@ -51,5 +46,9 @@ public class Figur
 	public boolean spielzugMoeglich(SpielFeld spielfeld, Position position)
 	{
 		return false;
+	}
+	public char getName()
+	{
+		return name;
 	}
 }

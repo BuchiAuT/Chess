@@ -89,6 +89,10 @@ public class König extends Figur
 	{
 		return kurzeRochadeMöglich;
 	}
+	public char getName()
+	{
+		return name;
+	}
 	
 }
 		

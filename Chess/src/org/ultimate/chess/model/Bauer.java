@@ -127,6 +127,10 @@ public class Bauer extends Figur
 	return statement;
 
 	}
+	public char getName()
+	{
+		return name;
+	}
 	
 	public boolean getObFigurGeholtWerdenKann()
 	{

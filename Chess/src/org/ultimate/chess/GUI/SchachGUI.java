@@ -1,6 +1,7 @@
 package org.ultimate.chess.GUI;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
@@ -27,14 +28,15 @@ public class SchachGUI
 	Position von;
 	boolean spielzug_gestartet;
 	private SpielFeld sf;
-	private JFrame main_frame;
+	private Haupt_Frame main_frame;
 	public SchachGUI(SpielFeld sf)
 	{
 		spielzug_gestartet = false;
 		this.sf = sf;
-		main_frame = new JFrame();
+		main_frame = new Haupt_Frame();
 		main_frame.setLayout(new GridLayout(8,8,1,1));
 		main_frame.setSize(500, 500);
+		main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		for(int i = 0;i<8;i++)
 		{
 			for(int u = 0; u<8;u++)
@@ -92,17 +94,19 @@ public class SchachGUI
 					}
 				
 				});
-				fp.setBackground(Color.LIGHT_GRAY);
-				main_frame.add(fp);
+				fp.setBackground(Color.RED);
+				main_frame.addPanel(fp);
 			}
 		}
 		main_frame.repaint();
 		main_frame.revalidate();
-		main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		main_frame.setVisible(true);
+		zeichnen();
 	}
 	public void zeichnen()
 	{
+		
+		System.out.println("zeichnen");
 		Position pos = new Position(100,100);
 		for(int i = 0; i <8 ;i++)
 		{
@@ -114,21 +118,27 @@ public class SchachGUI
 				{
 					if(sf.figuren.get(k).getPos().equals(pos))
 					{
-						switch(sf.figuren.get(k).getName())
+						char name = sf.figuren.get(k).getName();
+						switch(name)
 						{
-							case 'T' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Turm")); break;
-							case 'S' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Springer")); break;
-							case 'L' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Läufer")); break;
-							case 'K' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("König")); break;
-							case 'D' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Dame")); break;
-							case 'B' : ((FigurenPanel) main_frame.getComponentAt(pos.getX(), pos.getY())).setImage(bildHolen("Bauer"));
+							case 'T' : main_frame.getFPanel(pos).setImage(bildHolen("Turm")); break;
+							case 'S' : main_frame.getFPanel(pos).setImage(bildHolen("Springer")); break;
+							case 'L' : main_frame.getFPanel(pos).setImage(bildHolen("Läufer")); break;
+							case 'K' : main_frame.getFPanel(pos).setImage(bildHolen("König")); break;
+							case 'D' : main_frame.getFPanel(pos).setImage(bildHolen("Dame")); break;
+							case 'B' : main_frame.getFPanel(pos).setImage(bildHolen("Bauer")); System.out.println("bauer");
 						}
 						main_frame.repaint();
 						main_frame.revalidate();
+		
 					}
 				}
 			}
 		}
+	}
+	private Object FigurenPanel(Component componentAt) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	public Image bildHolen(String name)
 	{

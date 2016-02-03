@@ -126,6 +126,10 @@ public class Turm extends Figur
 		
 		return statement;
 	}
+	public char getName()
+	{
+		return name;
+	}
 
 	@Override
 	public boolean spielZug(SpielFeld sp, Position nach) {
