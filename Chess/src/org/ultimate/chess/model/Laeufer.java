@@ -59,7 +59,9 @@ public class Laeufer extends Figur
 			}
 		}
 		
-		if(rechtsOben)
+		rechts_Oben(position, position, spielfeld);
+		
+		if(rechtsOben && ergebnis)
 		{
 			if(((spielfeld.holeFigur(position).getPos().getX()!=position.getX()) && (spielfeld.holeFigur(position).getPos().getY()!=position.getY()))) // Abfragen dass keine Figur auf dem Feld steht 
 			{					
@@ -160,24 +162,85 @@ public class Laeufer extends Figur
 		return false;
 	}
 	
-	public boolean diagonal(Position von,Position nach,SpielFeld sf)
+	boolean ergebnis = false;
+	
+	public boolean rechts_Oben(Position von, Position nach, SpielFeld sf)
 	{
-		boolean ergebniss = false;
-		Position pos = new Position(von.getX(),von.getY());
+		Position pos = new Position(von.getX(), von.getY());
 		int diff = von.getX() - nach.getX();
-		for(int i = 1; i<diff; i++)
+		for(int i = 1; i < diff; i++)
 		{
-			pos.setX(pos.getX()+i);
-			pos.setY(pos.getY()+i);
-			if(sf.holeFigur(pos).getPos().getX()==100)
+			pos.setX(pos.getX() + i);
+			pos.setY(pos.getY() + i);
+			if(sf.holeFigur(pos).getPos().getX() == 100)
 			{
-				ergebniss = true;
+				ergebnis = true;
 			}
 			else
 			{
 				return false;
 			}
 		}
-	return ergebniss;
+		return ergebnis;
+	}
+	
+	public boolean rechts_Unten(Position von, Position nach, SpielFeld sf)
+	{
+		Position pos = new Position(von.getX(), von.getY());
+		int diff = von.getX() - nach.getX();
+		for(int i = 1; i < diff; i++)
+		{
+			pos.setX(pos.getX() + i);
+			pos.setY(pos.getY() - i);
+			if(sf.holeFigur(pos).getPos().getX() == 100)
+			{
+				ergebnis = true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		return ergebnis;
+	}
+	
+	public boolean links_Oben(Position von, Position nach, SpielFeld sf)
+	{
+		Position pos = new Position(von.getX(), von.getY());
+		int diff = von.getX() - nach.getX();
+		for(int i = 1; i < diff; i++)
+		{
+			pos.setX(pos.getX() - i);
+			pos.setY(pos.getY() + i);
+			if(sf.holeFigur(pos).getPos().getX() == 100)
+			{
+				ergebnis = true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		return ergebnis;
+	}
+	
+	public boolean links_Unten(Position von, Position nach, SpielFeld sf)
+	{
+		Position pos = new Position(von.getX(), von.getY());
+		int diff = von.getX() - nach.getX();
+		for(int i = 1; i < diff; i++)
+		{
+			pos.setX(pos.getX() - i);
+			pos.setY(pos.getY() - i);
+			if(sf.holeFigur(pos).getPos().getX() == 100)
+			{
+				ergebnis = true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		return ergebnis;
 	}
 }
