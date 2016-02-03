@@ -150,6 +150,10 @@ public class SchachGUI
 						main_frame.revalidate();
 					}
 				}
+				if(!gefunden)
+				{
+					main_frame.getFPanel(pos).setImage(null);
+				}
 			}		
 		}
 	}
