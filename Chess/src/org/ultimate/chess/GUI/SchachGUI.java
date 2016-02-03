@@ -48,7 +48,7 @@ public class SchachGUI
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				FigurenPanel fp = new FigurenPanel(i,u,image);
+				FigurenPanel fp = new FigurenPanel(u,i,image);
 				fp.addMouseListener(new MouseListener(){
 
 					@Override
@@ -104,9 +104,7 @@ public class SchachGUI
 		zeichnen();
 	}
 	public void zeichnen()
-	{
-		
-		System.out.println("zeichnen");
+	{	
 		Position pos = new Position(100,100);
 		for(int i = 0; i <8 ;i++)
 		{
@@ -114,10 +112,16 @@ public class SchachGUI
 			for(int u = 0; i<8 ;u++)
 			{
 				pos.setX(u);
+				if(pos.getX()>7)
+				{
+					break;
+				}
+				boolean gefunden = false;
 				for(int k= 0; k < sf.figuren.size();k++)
 				{
 					if(sf.figuren.get(k).getPos().equals(pos))
 					{
+						gefunden = true;
 						char name = sf.figuren.get(k).getName();
 						switch(name)
 						{
@@ -130,15 +134,16 @@ public class SchachGUI
 						}
 						main_frame.repaint();
 						main_frame.revalidate();
-		
 					}
 				}
+				if(!gefunden)
+				{
+				main_frame.getFPanel(pos).setImage(bildHolen("grau"));
+				}
+					main_frame.repaint();
+					main_frame.revalidate();
+				}		
 			}
-		}
-	}
-	private Object FigurenPanel(Component componentAt) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	public Image bildHolen(String name)
 	{

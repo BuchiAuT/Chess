@@ -28,9 +28,11 @@ public class Haupt_Frame extends JFrame{
 		FigurenPanel ergebniss = null;
 		for(int i = 0; i< panels.size(); i++)
 		{
+			System.out.println(panels.get(i).getPos().getX()+"xx"+panels.get(i).getPos().getY()+"yy");
 			if(panels.get(i).getPos().equals(pos))
 			{
 				ergebniss = panels.get(i);
+				break;
 			}
 		}
 		return ergebniss;
