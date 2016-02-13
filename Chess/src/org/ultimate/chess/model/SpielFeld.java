@@ -11,6 +11,30 @@ public class SpielFeld {
 		figuren = new ArrayList<Figur>();
 		werAmZug = true;
 	}
+	@Override
+	public String toString() {
+	String ergebnis = "";
+	Position pos = new Position(100,100);
+		for(int i = 0;i<8;i++)
+		{
+			ergebnis = ergebnis +"\n";
+			pos.setY(i);
+			for(int u = 0; u<8 ;u++)
+			{
+				pos.setX(u);
+				if(this.holeFigur(pos).getPos().getX() == 100)
+				{
+					ergebnis = ergebnis +"|_____|";
+				}
+				else
+				{
+				ergebnis = ergebnis + this.holeFigur(pos).getName()+"x:"+this.holeFigur(pos).getPos().getX()+"y:"+this.holeFigur(pos).getPos().getY();
+				}
+				
+			}
+		}
+		return ergebnis;
+	}
 	public Figur holeFigur(Position pos)
 	{
 		for(int i = 0; i < figuren.size() ;i++)

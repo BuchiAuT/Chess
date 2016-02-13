@@ -10,6 +10,10 @@ import org.ultimate.chess.model.Position;
 
 public class FigurenPanel extends JPanel 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Position pos;
 	 private Image image;
 	public FigurenPanel(int PosX,int PosY,Image image)

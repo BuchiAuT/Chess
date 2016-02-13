@@ -3,8 +3,6 @@ package org.ultimate.chess.GUI;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
-
-import org.ultimate.chess.model.Figur;
 import org.ultimate.chess.model.Position;
 
 public class Haupt_Frame extends JFrame{
