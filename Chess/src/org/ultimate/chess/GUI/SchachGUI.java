@@ -3,30 +3,19 @@ package org.ultimate.chess.GUI;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
 import org.ultimate.chess.model.Position;
 import org.ultimate.chess.model.SpielFeld;
 
 public class SchachGUI {
-	boolean weristdran = true; // weiﬂ
-	Position nach;
-	Position von;
-	boolean spielzug_gestartet;
 	private SpielFeld sf;
 	private Haupt_Frame main_frame;
 
 	public SchachGUI(SpielFeld sf) {
 		boolean panelfarbe = true;
-		spielzug_gestartet = false;
 		this.sf = sf;
 		main_frame = new Haupt_Frame();
 		main_frame.setLayout(new GridLayout(8, 8, 1, 1));
@@ -46,7 +35,6 @@ public class SchachGUI {
 					fp.setBackground(Color.WHITE);
 				}
 				fp.addMouseListener(new PanelListener(this,sf,main_frame));
-				// fp.setBackground(Color.GRAY);
 				main_frame.addPanel(fp);
 			}
 		}
